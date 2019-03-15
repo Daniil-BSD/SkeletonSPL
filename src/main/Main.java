@@ -15,6 +15,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("I, Daniil, have commited a change!");
+		System.out.println("I, Chen, have commited a change!");
 		// trying to fix
 	}
 
