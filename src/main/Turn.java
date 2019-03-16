@@ -1,16 +1,16 @@
-package Unfinished;
+package main;
 
 import java.util.*;
 
 /**
  * 
  */
-public class Locomotive extends Car {
+public class Turn extends Segment {
 
     /**
      * Default constructor
      */
-    public Locomotive() {
+    public Turn() {
     }
 
 }

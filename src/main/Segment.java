@@ -1,8 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.Cell;
 
 /**
  * This class is responsible for bigger units of space of the level than cells - segments.

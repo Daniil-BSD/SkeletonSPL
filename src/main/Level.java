@@ -1,4 +1,4 @@
-package finshed;
+package main;
 
 import java.util.*;
 

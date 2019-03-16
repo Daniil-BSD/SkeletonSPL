@@ -1,9 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.Car;
-import Unfinished.CellLogic;
 
 /**
  * This class is needed to set the paths for the trains.

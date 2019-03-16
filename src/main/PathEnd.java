@@ -1,10 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.Car;
-import Unfinished.Cell;
-import Unfinished.CellLogic;
 
 /**
  * This class makes it so that upon reaching the end of the segment, 

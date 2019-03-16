@@ -1,11 +1,9 @@
-package Unfinished;
+package main;
 
 import java.util.*;
 
-import finshed.Path;
-
 /**
- * 
+ * This class is responsible for choosing the path out of the fork.
  */
 public class SelectorPath extends Path {
 
@@ -16,7 +14,7 @@ public class SelectorPath extends Path {
     }
 
     /**
-     * 
+     * This method chooses the path out of the fork.
      */
     public void SelectNextExit() {
         // TODO implement here

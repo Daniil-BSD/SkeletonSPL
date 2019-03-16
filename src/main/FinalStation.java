@@ -1,8 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.Station;
 
 /**
  * This class is responsible for the final station which, 

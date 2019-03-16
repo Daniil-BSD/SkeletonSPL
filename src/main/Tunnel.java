@@ -1,8 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.TunnelEntrance;
 
 /**
  * This class is responsible for the tunnels which connect the two entrances.

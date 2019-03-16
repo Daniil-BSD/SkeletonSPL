@@ -1,11 +1,10 @@
-package Unfinished;
+package main;
 
 import java.util.*;
 
-import finshed.Segment;
-
 /**
- * 
+ * This class is responsible for the stations that have colorr. Depending on these colors, 
+ * passengers embark or disembark.
  */
 public class Station extends Segment {
 
@@ -24,7 +23,7 @@ public class Station extends Segment {
 
 
     /**
-     * 
+     * This attribute returns the colors of the station.
      */
     public void GetColors() {
         // TODO implement here

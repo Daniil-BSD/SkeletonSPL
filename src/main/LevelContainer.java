@@ -1,8 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.TunnelEntrance;
 
 /**
  * This class stores all the levels of the game. Also, the levels are managed 

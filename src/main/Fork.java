@@ -1,10 +1,6 @@
-package finshed;
+package main;
 
 import java.util.*;
-
-import Unfinished.Car;
-import Unfinished.CellLogic;
-import Unfinished.SelectorPath;
 
 /**
  * This class is responsible for directing the train along 

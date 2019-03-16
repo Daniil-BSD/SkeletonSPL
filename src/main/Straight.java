@@ -1,8 +1,6 @@
-package Unfinished;
+package main;
 
 import java.util.*;
-
-import finshed.Segment;
 
 /**
  * 
