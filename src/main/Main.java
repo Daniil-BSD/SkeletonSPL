@@ -17,6 +17,7 @@ public class Main {
 		System.out.println("I, Daniil, have commited a change!");
 		System.out.println("I, Chen, have commited a change!");
 		// trying to fix
+		System.out.println("I, Wu, have commited a change!");
 	}
 
 }
