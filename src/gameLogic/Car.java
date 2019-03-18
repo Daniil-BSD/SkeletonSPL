@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * This class is responsible for the moving objects on the level, 
  * like the locomotive and the passenger car which are derived from this class.
  */
-public abstract class Car {
+abstract class Car {
 
     /**
      * Default constructor

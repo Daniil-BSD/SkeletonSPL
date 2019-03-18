@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * This class manages the levels of the game which store cars, 
  * segments and cells within them.
  */
-public class Level {
+class Level {
 
     /**
      * Default constructor

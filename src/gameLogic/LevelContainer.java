@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * This class stores all the levels of the game. Also, the levels are managed 
  * internally by this class. The segments are joined and the tunnels are constructed by it.
  */
-public abstract class LevelContainer {
+abstract class LevelContainer {
 
     /**
      * 

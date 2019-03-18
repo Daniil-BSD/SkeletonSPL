@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * The path is a sequence of cells along which the train moves 
  * which is implemented by this class.
  */
-public class Path {
+class Path {
 
     /**
      * Default constructor

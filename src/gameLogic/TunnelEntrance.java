@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  * When the train disappears at one end, it emerges at the other end 
  * which is implemented by this class.
  */
-public class TunnelEntrance extends Segment {
+class TunnelEntrance extends Segment {
 
     /**
      * Default constructor

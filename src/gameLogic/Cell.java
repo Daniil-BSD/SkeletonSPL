@@ -1,11 +1,11 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
 /**
  * This class is responsible for the basic spacial units of the level, cells. 
  */
-public class Cell {
+class Cell {
 
     /**
      * Default constructor

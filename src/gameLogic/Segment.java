@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -9,7 +9,7 @@ import java.util.*;
  *  graphically representing the level. Other than that, a segment is a sequence of cells 
  *  along two paths in opposite directions for the trains to traverse.
  */
-public abstract class Segment {
+abstract class Segment {
 
     /**
      * Default constructor

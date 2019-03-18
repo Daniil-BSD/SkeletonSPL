@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  * the different paths that go out of the fork depending on 
  * the player¡¦s choice.
  */
-public class Fork extends Segment{
+class Fork extends Segment{
 
     /**
      * Default constructor

@@ -1,11 +1,11 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
 /**
  * This class is responsible for choosing the path out of the fork.
  */
-public class SelectorPath extends Path {
+class SelectorPath extends Path {
 
     /**
      * Default constructor

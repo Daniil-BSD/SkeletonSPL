@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * This class is responsible for the stations that have colorr. Depending on these colors, 
  * passengers embark or disembark.
  */
-public class Station extends Segment {
+class Station extends Segment {
 
     /**
      * Default constructor

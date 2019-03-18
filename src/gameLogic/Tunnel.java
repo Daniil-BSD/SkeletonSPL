@@ -1,11 +1,11 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
 /**
  * This class is responsible for the tunnels which connect the two entrances.
  */
-public class Tunnel extends Segment {
+class Tunnel extends Segment {
 
     /**
      * Default constructor

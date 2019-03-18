@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 /**
  * This is an enumeration that stores all the possible colors.

@@ -1,4 +1,4 @@
-package main;
+package gameLogic;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * This class is responsible for the logic behind the final stations 
  * and implements the CellLogic interface.
  */
-public class FinalStationStop implements CellLogic {
+class FinalStationStop implements CellLogic {
 
     /**
      * Default constructor
