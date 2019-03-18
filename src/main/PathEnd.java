@@ -26,7 +26,7 @@ public class PathEnd implements CellLogic {
      * This method returns true if the cell referred to by its ID is free, 
      * that is, if it does not know what cell is next.
      */
-    public void HasConnection(void int endID) {
+    public void HasConnection() {
         // TODO implement here
     }
 

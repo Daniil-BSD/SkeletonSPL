@@ -24,8 +24,6 @@ public class Cell {
     private Boolean occupied;
 
 
-
-
     /**
      * This method returns the value depending on the occupied attribute.
      */

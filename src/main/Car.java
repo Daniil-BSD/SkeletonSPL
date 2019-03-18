@@ -69,7 +69,7 @@ public abstract class Car {
      * @param logic.path
      * This method sets the path for the car.
      */
-    public void SetPath(void logic.path) {
+    public void SetPath(Path path) {
         // TODO implement here
     }
 
@@ -77,7 +77,7 @@ public abstract class Car {
      * @param logic.nextCell
      *  This method sets the next cell for the car.
      */
-    public void SetNextCell(void logic.nextCell) {
+    public void SetNextCell(Cell cell) {
         // TODO implement here
     }
 
@@ -93,7 +93,7 @@ public abstract class Car {
      *  When the locomotive is at the station, this method gets the colors of the train, 
      *  checks if any of them match with the station¡¦s colors. If they do, it then drops the passengers. 
      */
-    public void CurrentlyAtTheStation(void colors[]) {
+    public void CurrentlyAtTheStation(Colors[] colors) {
         // TODO implement here
     }
 

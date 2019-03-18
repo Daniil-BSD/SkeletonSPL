@@ -27,7 +27,7 @@ public class Tunnel extends Segment {
      * @param TunnelEntrance te
      * This method returns the other end of the tunnel passed on to this method as te.
      */
-    public void TunnelEntranceGetTheOtherEnd(void TunnelEntrance te) {
+    public void TunnelEntranceGetTheOtherEnd(TunnelEntrance te) {
         // TODO implement here
     }
 

@@ -19,9 +19,6 @@ public class Station extends Segment {
      */
     private Colors colors[];
 
-
-
-
     /**
      * This attribute returns the colors of the station.
      */

@@ -7,7 +7,7 @@ import java.util.*;
  * When the train disappears at one end, it emerges at the other end 
  * which is implemented by this class.
  */
-private class TunnelEntrance extends Segment {
+public class TunnelEntrance extends Segment {
 
     /**
      * Default constructor
@@ -38,7 +38,7 @@ private class TunnelEntrance extends Segment {
      * @param Tunnel newTunnel
      * This method sets the tunnel for the current Tunnel Entrance.
      */
-    public void SetTunnel(void Tunnel newTunnel) {
+    public void SetTunnel(Tunnel newTunnel) {
         // TODO implement here
     }
 

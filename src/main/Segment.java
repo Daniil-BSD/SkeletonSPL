@@ -40,7 +40,7 @@ public abstract class Segment {
     /**
      * 
      */
-    protected string id;
+    protected String id;
 
 
 
@@ -51,7 +51,16 @@ public abstract class Segment {
      *  This attribute is needed to find a needed segment in the level by its 
      *  string identifier. It is needed in order to build the level by connecting segments.
      */
-    public void AreYou(void segment) {
+    public void AreYou(String segmentID) {
+        // TODO implement here
+    }
+    
+    /**
+     * @param segment
+     *  This attribute is needed to find a needed segment in the level by its 
+     *  reference. It is needed in order to build the level by connecting segments.
+     */
+    public void AreYou(Segment segment) {
         // TODO implement here
     }
 
@@ -59,16 +68,19 @@ public abstract class Segment {
      * @param cell
      * This method returns a cell that is an edge of the segment if this cell is free.
      */
-    public void GetFreeEnd(void cell) {
+    public void GetFreeEnd(IndexOutOfBoundsException endID) {
         // TODO implement here
     }
 
+    
+    
+    // the one below has an error, but I do not remember how it has to be
     /**
      * @param cell
      * This method connects the segments by its ends, one of 
      * which is passed on as a parameter to this method.
      */
-    public void ConnectTo(void cell) {
+    public void ConnectTo() {
         // TODO implement here
     }
 

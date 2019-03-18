@@ -14,14 +14,12 @@ public class Path {
     public Path() {
     }
 
-
-
     /**
      * @param cell
      *  This method gets the cell, and returns the cell 
      *  which is next to it along the same path.
      */
-    public void NextCell(void cell) {
+    public void NextCell(Cell cell) {
         // TODO implement here
     }
 
@@ -31,7 +29,7 @@ public class Path {
      *  This method gets the cell, which is occupied by a car and 
      *  makes the amount of cells equal to length behind the car occupied as well.
      */
-    public void UpdatePresence(void int length, void Cell current) {
+    public void UpdatePresence(int length, Cell current) {
         // TODO implement here
     }
 

@@ -7,7 +7,7 @@ import java.util.*;
  * the different paths that go out of the fork depending on 
  * the player¡¦s choice.
  */
-public class Fork extends Segment implements CellLogic, CellLogic {
+public class Fork extends Segment{
 
     /**
      * Default constructor
@@ -48,19 +48,4 @@ public class Fork extends Segment implements CellLogic, CellLogic {
     public void Select() {
         // TODO implement here
     }
-
-    /**
-     * @param car
-     */
-    public void LogicRequest(Car car) {
-        // TODO implement here
-    }
-
-    /**
-     * @param car
-     */
-    public void LogicRequest(Car car) {
-        // TODO implement here
-    }
-
 }

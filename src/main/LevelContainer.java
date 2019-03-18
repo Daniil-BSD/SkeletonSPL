@@ -9,12 +9,6 @@ import java.util.*;
 public abstract class LevelContainer {
 
     /**
-     * Default constructor
-     */
-    public LevelContainer() {
-    }
-
-    /**
      * 
      */
     private Level levels[];
@@ -31,7 +25,7 @@ public abstract class LevelContainer {
      * If the train is empty, the train waits at the Final Station. 
      * If the train is not empty, the game is lost and the level is restarted.  
      */
-    public void FinalReport(void car) {
+    public void FinalReport(Locomotive locomotive) {
         // TODO implement here
     }
 
@@ -42,7 +36,7 @@ public abstract class LevelContainer {
      * @param int end2ID
      * This method starts the process of joining two segments. It is called by the Controller.
      */
-    public void Join(void string Sgm1ID, void int end1ID, void string  Sgm2ID, void int end2ID) {
+    public void Join( String Sgm1ID, int end1ID, String  Sgm2ID, int end2ID) {
         // TODO implement here
     }
 
@@ -51,15 +45,15 @@ public abstract class LevelContainer {
      *  This method returns true if a tunnel entrance 
      *  is selected to construct a tunnel between two points.
      */
-    public Boolean IsEntranceSelected() {
+    public boolean IsEntranceSelected() {
         // TODO implement here
-        return null;
+        return true;
     }
 
     /**
-     * @param TunnelEntrance te1
+     * @param TunnelEntrance te
      */
-    public void IsTunnelPossibleFrom(void TunnelEntrance te1) {
+    public void IsTunnelPossibleFrom(TunnelEntrance te) {
         // TODO implement here
     }
 
@@ -69,7 +63,7 @@ public abstract class LevelContainer {
      *  the current tunnels of the two entrances, creates a new tunnel and sets 
      *  it for the te and the selected entrance.
      */
-    public void ConstructFrom(void TunnelEntrance te) {
+    public void ConstructFrom(TunnelEntrance te) {
         // TODO implement here
     }
 
@@ -77,7 +71,7 @@ public abstract class LevelContainer {
      * @param Tunnel newTunnel
      * This method registers a new tunnel to the level.
      */
-    public void addTunnel(void Tunnel newTunnel) {
+    public void addTunnel(Tunnel newTunnel) {
         // TODO implement here
     }
 
@@ -87,7 +81,22 @@ public abstract class LevelContainer {
      * This method is called by the above method to check 
      * if the tunnel is possible between the two entrances. 
      */
-    public void IsTunnelPossibleBetween(void TunnelEntrance te, void TunnelEntrance selected) {
+    public void IsTunnelPossibleBetween(TunnelEntrance te, TunnelEntrance selected) {
+        // TODO implement here
+    }
+    
+
+    /**
+     * @param car
+     */
+    public void Derailed(Car car) {
+        // TODO implement here
+    }
+
+    /**
+     * @param car
+     */
+    public void Collided(Car car) {
         // TODO implement here
     }
 

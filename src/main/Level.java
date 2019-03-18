@@ -22,7 +22,7 @@ public class Level {
     /**
      *  Segments of the level are stored by this attribute
      */
-    private Segments segments[];
+    private Segment[] segments;
 
     /**
      * This attribute is useful for joining two segments. 
@@ -50,18 +50,17 @@ public class Level {
      * @param String sgm1ID
      *  This method returns a segment which was found by its string ID.
      */
-    public void FindSegment(void String sgm1ID) {
+    public void FindSegment(String sgmID) {
         // TODO implement here
     }
-
     /**
-     * @param TunnelEntrance te 
-     * @param TunnelEntrance selected
+     * @param TunnelEntrance te1
+     * @param TunnelEntrance te2
      * This method is called by the level container and returns true if the tunnel
      *  is possible between the selected point and the entrance which was passed to 
      *  this method. Returns false otherwise.
      */
-    public void IsTunnelPossibleFrom(void TunnelEntrance te, void TunnelEntrance selected) {
+    public void IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2) {
         // TODO implement here
     }
 
@@ -70,7 +69,7 @@ public class Level {
      *  This method adds a new tunnel to the level and it is called by a similarly named method of 
      *  the LevelContainer class.
      */
-    public void addTunnel(void Tunnel newTunnel) {
+    public void addTunnel(Tunnel newTunnel) {
         // TODO implement here
     }
 
