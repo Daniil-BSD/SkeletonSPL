@@ -64,7 +64,6 @@ abstract class Car {
      *   color. It will be bound to the system clock.
      */
     public void Step() {
-        // TODO implement here
     	if(cell.logic!=null)
         permissionToLeave = cell.logic.LogicRequest(this);
     	if(permissionToLeave) {
@@ -92,7 +91,6 @@ abstract class Car {
      * This method sets the path for the car.
      */
     public void SetPath(Path path) {
-        // TODO implement here
     	this.path = path;
     }
 
@@ -101,18 +99,13 @@ abstract class Car {
      *  This method sets the next cell for the car.
      */
     public void SetNextCell(Cell cell) {
-        // TODO implement here
+        this.nextCell = cell;
     }
 
     /**
      *  This method returns true if the this car is the locomotive, false is returned if not.
      */
     public boolean IsLocomotive() {
-        // TODO implement here
-    	if(this.getClass() == Locomotive.class ) {
-    		return true;
-    	}
-    	
     	return false;
     	
     }
@@ -123,7 +116,6 @@ abstract class Car {
      *  checks if any of them match with the station¡¦s colors. If they do, it then drops the passengers. 
      */
     public boolean CurrentlyAtTheStation(Colors[] colors) {
-        // TODO implement here
     	if(attachedCar!=null) {
     	return attachedCar.CurrentlyAtTheStation(colors);
     	
@@ -135,7 +127,6 @@ abstract class Car {
      *  This method checks if the train has passengers or not. Returns true or false respectively.
      */
     public boolean IsEmpty() {
-        // TODO implement here
     	attachedCar.IsEmpty();
     	return true;
     }
