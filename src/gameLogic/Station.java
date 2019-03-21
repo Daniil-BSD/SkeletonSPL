@@ -18,6 +18,11 @@ class Station extends Segment {
      * 
      */
     private Colors colors[];
+    
+    
+    public  boolean IsFinal() {
+		return false;
+	}
 
     /**
      * This attribute returns the colors of the station.

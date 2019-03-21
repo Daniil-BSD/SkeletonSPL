@@ -13,4 +13,11 @@ class Locomotive extends Car {
     public Locomotive() {
     }
 
+	@Override
+	public boolean IsLocomotive() {
+		return true;
+	}
+    
+    
+    
 }

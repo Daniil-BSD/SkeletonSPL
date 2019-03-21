@@ -17,27 +17,17 @@ class Level {
     /**
      * This attribute stores the trains of the level.
      */
-    private Locomotive trains[];
+    private ArrayList<Locomotive> trains;
 
     /**
      *  Segments of the level are stored by this attribute
      */
-    private Segment[] segments;
-
-    /**
-     * This attribute is useful for joining two segments. 
-     * It is returned by the AreYou() method of the Segment class to find 
-     * the needed segment by its ID.
-     */
-    private Boolean found;
-
+    private ArrayList<Segment> segments;
+    
     /**
      *  Stores the tunnels of the level.
      */
-    private Tunnel tunnels[];
-
-
-
+    private ArrayList<Tunnel> tunnels;
 
     /**
      *  System clock is implemented by this method.

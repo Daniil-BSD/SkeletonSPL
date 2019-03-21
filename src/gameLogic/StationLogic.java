@@ -7,6 +7,8 @@ import java.util.*;
  *  disembarking depending on the colors of the train and the station. 
  */
 class StationLogic implements CellLogic {
+	
+	private boolean finalReportFlag = false;
 
     /**
      * Default constructor
@@ -25,16 +27,20 @@ class StationLogic implements CellLogic {
      */
     @Override
     public boolean LogicRequest(Car car) {
-        // TODO implement here
     	if(car.IsLocomotive()) {
     		Colors colors[] = parentStation.GetColors();
-    		if(car.CurrentlyAtTheStation(colors)&&parentStation.getClass() == FinalStation.class) {
-    			LevelContainer.FinalReport(car);
+    		if(car.CurrentlyAtTheStation(colors)) {
     			return false;
+    		}else {
+    			if(parentStation.IsFinal()) {
+    				if(!finalReportFlag) {
+    					finalReportFlag = true;
+    					LevelContainer.FinalReport(car);
+    				}
+    				return false;
+    			}
+    			return true;
     		}
-    	
-    		return true;
-    		
     		
     	}
     	return true;

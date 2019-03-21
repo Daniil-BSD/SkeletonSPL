@@ -10,10 +10,16 @@ import java.util.*;
  */
 class FinalStation extends Station {
 
+	
+	
     /**
      * Default constructor
      */
     public FinalStation() {
     }
 
+    @Override
+    public  boolean IsFinal() {
+		return true;
+	}
 }

@@ -11,7 +11,7 @@ abstract class LevelContainer {
     /**
      * 
      */
-    private static Level levels[];
+    private static Level level;
 
     /**
      * 
@@ -99,6 +99,22 @@ abstract class LevelContainer {
      */
     public static void Collided(Car car) {
         // TODO implement here
+    }
+    
+    public static void Victory(String message) {
+    	
+    }
+    
+    public static void Victory() {
+    	
+    }
+    
+    public static void Defeat(String message) {
+    	
+    }
+    
+    public static void Defeat() {
+    	
     }
 
 }

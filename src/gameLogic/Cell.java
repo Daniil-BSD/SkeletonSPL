@@ -28,8 +28,7 @@ class Cell {
      * This method returns the value depending on the occupied attribute.
      */
     public boolean IsOccupied() {
-        // TODO implement here
-    	return true;
+    	return occupied;
     }
 
 }
