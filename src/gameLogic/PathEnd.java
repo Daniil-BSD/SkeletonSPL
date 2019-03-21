@@ -35,8 +35,10 @@ class PathEnd implements CellLogic {
      *  This method uses the logic of cell connections to connect to 
      *  link two cells in different segments.
      */
-    public void LogicRequest(Car car) {
+    public boolean LogicRequest(Car car) {
         // TODO implement here
+    	car.SetNextCell(nextCell);
+    	return true;
     }
 
 }

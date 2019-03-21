@@ -13,6 +13,6 @@ interface CellLogic {
      * This method triggers actions bound to the respective cell, and decides 
      * if the train can leave the current cell and advance to the next cell along the path.
      */
-    public void LogicRequest(Car car);
+    public boolean LogicRequest(Car car);
 
 }

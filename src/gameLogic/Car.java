@@ -2,6 +2,8 @@ package gameLogic;
 
 import java.util.*;
 
+import javax.xml.ws.handler.LogicalHandler;
+
 /**
  * This class is responsible for the moving objects on the level, 
  * like the locomotive and the passenger car which are derived from this class.
@@ -28,14 +30,14 @@ abstract class Car {
     /**
      * We need this for the car to always know its next step and path.
      */
-    private Cell nextCell;
+    protected Cell nextCell;
 
     /**
      * This attribute is for a car to know which other cars is it attached to. 
      * A train is moved by a locomotive which is a car, so cars should be connected with 
      * each other for this to work.
      */
-    private Car attachedCar;
+    protected Car attachedCar;
 
     /**
      * This attribute is here because of the cell logic. 
@@ -63,6 +65,26 @@ abstract class Car {
      */
     public void Step() {
         // TODO implement here
+    	if(cell.logic!=null)
+        permissionToLeave = cell.logic.LogicRequest(this);
+    	if(permissionToLeave) {
+    		if(nextCell==null)
+    			nextCell = this.path.NextCell(cell);
+    		if(nextCell == null) 
+    			LevelContainer.Derailed(this);
+    	}
+    	if(!this.nextCell.IsOccupied()) {
+    		
+    		this.cell = this.nextCell;
+    		this.path.UpdatePresence(4, cell);
+    		if(this.attachedCar!=null) {
+        		Step();      		
+        	}
+    	
+    	}
+    	else 
+    		LevelContainer.Collided(this);
+    	
     }
 
     /**
@@ -71,6 +93,7 @@ abstract class Car {
      */
     public void SetPath(Path path) {
         // TODO implement here
+    	this.path = path;
     }
 
     /**
@@ -84,8 +107,14 @@ abstract class Car {
     /**
      *  This method returns true if the this car is the locomotive, false is returned if not.
      */
-    public void IsLocomotive() {
+    public boolean IsLocomotive() {
         // TODO implement here
+    	if(this.getClass() == Locomotive.class ) {
+    		return true;
+    	}
+    	
+    	return false;
+    	
     }
 
     /**
@@ -93,15 +122,22 @@ abstract class Car {
      *  When the locomotive is at the station, this method gets the colors of the train, 
      *  checks if any of them match with the station¡¦s colors. If they do, it then drops the passengers. 
      */
-    public void CurrentlyAtTheStation(Colors[] colors) {
+    public boolean CurrentlyAtTheStation(Colors[] colors) {
         // TODO implement here
+    	if(attachedCar!=null) {
+    	return attachedCar.CurrentlyAtTheStation(colors);
+    	
+    	}
+    	return false;
     }
 
     /**
      *  This method checks if the train has passengers or not. Returns true or false respectively.
      */
-    public void IsEmpty() {
+    public boolean IsEmpty() {
         // TODO implement here
+    	attachedCar.IsEmpty();
+    	return true;
     }
 
 }

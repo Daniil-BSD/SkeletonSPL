@@ -19,5 +19,16 @@ class PassengerCar extends Car {
      */
     private Colors color;
 
+    @Override
+    public boolean CurrentlyAtTheStation(Colors[] colors) {
+        // TODO implement here
+    	for (Colors c : Colors.values()) {
+            if (c.toString().equals(this.color.toString())) {
+                return true;
+            }
+        }
 
-}
+        return false;
+    }
+    }
+

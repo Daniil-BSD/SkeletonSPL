@@ -17,8 +17,9 @@ class FinalStationStop implements CellLogic {
     /**
      * @param car
      */
-    public void LogicRequest(Car car) {
+    public boolean LogicRequest(Car car) {
         // TODO implement here
+    	return true;
     }
 
 }

@@ -16,7 +16,7 @@ class Cell {
     /**
      * This attribute stores the logic which decides the next move for the car.
      */
-    private CellLogic logic;
+    protected CellLogic logic;
 
     /**
      * This attribute stores true if the cell is occupied by a car, false otherwise. 
@@ -27,8 +27,9 @@ class Cell {
     /**
      * This method returns the value depending on the occupied attribute.
      */
-    public void IsOccupied() {
+    public boolean IsOccupied() {
         // TODO implement here
+    	return true;
     }
 
 }

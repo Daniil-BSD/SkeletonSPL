@@ -8,6 +8,7 @@ import java.util.*;
  */
 class Path {
 
+	private Cell[] cells;
     /**
      * Default constructor
      */
@@ -19,10 +20,13 @@ class Path {
      *  This method gets the cell, and returns the cell 
      *  which is next to it along the same path.
      */
-    public void NextCell(Cell cell) {
+    public Cell NextCell(Cell cell) {
         // TODO implement here
+    	return cells[0]; //need to finish this!!!
+    	
     }
 
+   
     /**
      * @param int length 
      * @param Cell current
@@ -31,6 +35,7 @@ class Path {
      */
     public void UpdatePresence(int length, Cell current) {
         // TODO implement here
+    	//finish this!!
     }
 
 }

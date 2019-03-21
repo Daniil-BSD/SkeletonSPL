@@ -21,9 +21,11 @@ class Station extends Segment {
 
     /**
      * This attribute returns the colors of the station.
+     * @return 
      */
-    public void GetColors() {
+    public Colors[] GetColors() {
         // TODO implement here
+    	return colors;
     }
 
 }
