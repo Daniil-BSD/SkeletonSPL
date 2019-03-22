@@ -7,7 +7,7 @@ import java.util.*;
  * When the train disappears at one end, it emerges at the other end 
  * which is implemented by this class.
  */
-class TunnelEntrance extends Segment {
+public class TunnelEntrance extends Segment {
 
     /**
      * Default constructor

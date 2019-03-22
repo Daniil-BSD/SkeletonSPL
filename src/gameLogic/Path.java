@@ -6,9 +6,9 @@ import java.util.*;
  * The path is a sequence of cells along which the train moves 
  * which is implemented by this class.
  */
-class Path {
+public class Path {
 
-	private Cell[] cells;
+	protected Cell[] cells;
     /**
      * Default constructor
      */
@@ -25,7 +25,14 @@ class Path {
     	return cells[0]; //need to finish this!!!
     	
     }
-
+    
+    public Cell GetStart() {
+    	return cells[0]; 
+    	
+    }
+    
+    
+    
    
     /**
      * @param int length 

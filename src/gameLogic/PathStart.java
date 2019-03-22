@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This class is needed to set the paths for the trains.
  */
-class PathStart implements CellLogic {
+public class PathStart implements CellLogic {
 
     /**
      * Default constructor

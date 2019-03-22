@@ -9,23 +9,25 @@ import java.util.*;
  *  graphically representing the level. Other than that, a segment is a sequence of cells 
  *  along two paths in opposite directions for the trains to traverse.
  */
-abstract class Segment {
+public abstract class Segment {
 
     /**
      * Default constructor
      */
     public Segment() {
     }
-
+    
+    protected Cell cells[];
+    
     /**
      * This attribute stores the first cell of the segment
      */
-    protected Cell end0;
+    protected PathEnd end0;
 
     /**
      * This attribute stores the last cell of the segment.
      */
-    protected Cell end1;
+    protected PathEnd end1;
 
     /**
      * A path from B to A is stored in this attribute.
@@ -51,8 +53,11 @@ abstract class Segment {
      *  This attribute is needed to find a needed segment in the level by its 
      *  string identifier. It is needed in order to build the level by connecting segments.
      */
-    public void AreYou(String segmentID) {
-        // TODO implement here
+    public boolean AreYou(String segmentID) {
+    	
+        if(segmentID == id)
+        	return true;
+        return false;
     }
     
     /**
@@ -68,10 +73,24 @@ abstract class Segment {
      * @param cell
      * This method returns a cell that is an edge of the segment if this cell is free.
      */
-    public void GetFreeEnd(IndexOutOfBoundsException endID) {
-        // TODO implement here
+    public Cell GetFreeEnd(int endID) {
+        if(!IsEndFree(endID))
+        	return null;
+        if(endID == 0) 
+        	return path01.GetStart();
+        if(endID == 1) 
+        	return path10.GetStart();
+        return null;
     }
-
+    
+    public boolean IsEndFree(int endID) {
+    	if(endID == 0) 
+    		return !end0.HasConnection();
+    	if(endID == 1)
+    		return !end1.HasConnection();
+    	return false;
+    	
+    }
     
     
     // the one below has an error, but I do not remember how it has to be
@@ -80,8 +99,8 @@ abstract class Segment {
      * This method connects the segments by its ends, one of 
      * which is passed on as a parameter to this method.
      */
-    public void ConnectTo() {
-        // TODO implement here
+    public void ConnectTo(Cell end) {
+        
     }
 
     /**

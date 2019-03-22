@@ -8,7 +8,7 @@ import java.util.*;
  * We lose the game if there are still passengers inside 
  * the train at that point.
  */
-class FinalStation extends Station {
+public class FinalStation extends Station {
 
 	
 	

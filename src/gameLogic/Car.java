@@ -8,7 +8,7 @@ import javax.xml.ws.handler.LogicalHandler;
  * This class is responsible for the moving objects on the level, like the
  * locomotive and the passenger car which are derived from this class.
  */
-abstract class Car {
+public abstract class Car {
 
 	/**
 	 * Default constructor

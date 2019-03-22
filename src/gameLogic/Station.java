@@ -6,14 +6,19 @@ import java.util.*;
  * This class is responsible for the stations that have colorr. Depending on these colors, 
  * passengers embark or disembark.
  */
-class Station extends Segment {
+public class Station extends Segment {
 
     /**
      * Default constructor
      */
     public Station() {
     }
-
+    
+    
+    public Station(String id) {
+    	
+    	this.id = id;
+    }
     /**
      * 
      */

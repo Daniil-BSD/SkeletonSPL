@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This class is responsible for choosing the path out of the fork.
  */
-class SelectorPath extends Path {
+public class SelectorPath extends Path {
 
     /**
      * Default constructor

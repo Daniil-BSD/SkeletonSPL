@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This interface is responsible for „decisions” or actions that must be performed at certain cells.
  */
-interface CellLogic {
+public interface CellLogic {
 
 
     /**

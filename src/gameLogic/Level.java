@@ -6,7 +6,7 @@ import java.util.*;
  * This class manages the levels of the game which store cars, 
  * segments and cells within them.
  */
-class Level {
+public class Level {
 
     /**
      * Default constructor
@@ -39,9 +39,14 @@ class Level {
     /**
      * @param String sgm1ID
      *  This method returns a segment which was found by its string ID.
+     * @return 
      */
-    public void FindSegment(String sgmID) {
-        // TODO implement here
+    public Segment FindSegment(String sgmID) {
+        for(Segment sg : segments) {
+        	if(sg.AreYou(sgmID))
+        		return sg;
+        }
+        return null;
     }
     /**
      * @param TunnelEntrance te1
@@ -61,6 +66,11 @@ class Level {
      */
     public void addTunnel(Tunnel newTunnel) {
         // TODO implement here
+    }
+    
+    public void addSegment(Segment sgm) {
+    	
+    	segments.add(sgm);
     }
 
 }

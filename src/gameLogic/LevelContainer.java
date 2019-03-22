@@ -1,17 +1,18 @@
 package gameLogic;
 
+import java.io.Console;
 import java.util.*;
 
 /**
  * This class stores all the levels of the game. Also, the levels are managed 
  * internally by this class. The segments are joined and the tunnels are constructed by it.
  */
-abstract class LevelContainer {
+public abstract class LevelContainer {
 
     /**
      * 
      */
-    private static Level level;
+    protected static Level level;
 
     /**
      * 
@@ -26,7 +27,6 @@ abstract class LevelContainer {
      * If the train is not empty, the game is lost and the level is restarted.  
      */
     public static void FinalReport(Car car) {
-        // TODO implement here
     	car.IsEmpty();
     }
 
@@ -38,9 +38,30 @@ abstract class LevelContainer {
      * This method starts the process of joining two segments. It is called by the Controller.
      */
     public static void Join( String Sgm1ID, int end1ID, String  Sgm2ID, int end2ID) {
-        // TODO implement here
+        Segment segment1 = level.FindSegment(Sgm1ID);
+        Segment segment2 = level.FindSegment(Sgm2ID);
+        if(segment1!=null && segment2!=null) {
+        	
+        	if(segment1.IsEndFree(end1ID) && segment2.IsEndFree(end2ID)) {
+        		segment1.ConnectTo(segment2.GetFreeEnd(end2ID));
+        		segment2.ConnectTo(segment1.GetFreeEnd(end1ID));
+        		
+        		
+        	}
+        	System.out.println("Already connected!");
+        }
+        if(segment1 == null || segment2 == null) {
+        	System.out.println("Missing Segments!");
+        	
+        }
+        
     }
 
+    
+    public static Segment FindSegment(String sgmID) {
+    	
+    	return level.FindSegment(sgmID);
+    }
     /**
      * @return
      *  This method returns true if a tunnel entrance 
@@ -76,6 +97,12 @@ abstract class LevelContainer {
         // TODO implement here
     }
 
+    
+    
+    public static void addSegment(Segment sgm) {
+    	
+    	level.addSegment(sgm);
+    }
     /**
      * @param TunnelEntrance te 
      * @param TunnelEntrance selected
@@ -85,6 +112,8 @@ abstract class LevelContainer {
     public static void IsTunnelPossibleBetween(TunnelEntrance te, TunnelEntrance selected) {
         // TODO implement here
     }
+    
+    
     
 
     /**
@@ -116,5 +145,7 @@ abstract class LevelContainer {
     public static void Defeat() {
     	
     }
+    
+    
 
 }

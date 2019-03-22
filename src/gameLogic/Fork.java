@@ -7,12 +7,17 @@ import java.util.*;
  * the different paths that go out of the fork depending on 
  * the player¡¦s choice.
  */
-class Fork extends Segment{
+public class Fork extends Segment{
 
     /**
      * Default constructor
      */
     public Fork() {
+    }
+    
+    public Fork(String id) {
+    	this.id = id;
+    	
     }
 
     /**
@@ -35,8 +40,14 @@ class Fork extends Segment{
      * This method returns true or false respectively if 
      * the cell out of the fork is occupied by a car or not
      */
-    public void IsEmpty() {
-        // TODO implement here
+    public boolean IsEmpty() {
+        
+    	for(Cell cell : this.cells) {
+    		if(cell.IsOccupied()) {
+    			return false;
+    		}
+    	}
+    	return true;
     }
 
     /**
@@ -47,5 +58,9 @@ class Fork extends Segment{
      */
     public void Select() {
         // TODO implement here
+    	if(IsEmpty()) {
+    		selectorPath.SelectNextExit();
+    		
+    	}
     }
 }

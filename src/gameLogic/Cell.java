@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This class is responsible for the basic spacial units of the level, cells. 
  */
-class Cell {
+public class Cell {
 
     /**
      * Default constructor
