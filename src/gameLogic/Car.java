@@ -9,7 +9,6 @@ import javax.xml.ws.handler.LogicalHandler;
  * locomotive and the passenger car which are derived from this class.
  */
 public abstract class Car {
-
 	/**
 	 * Default constructor
 	 */

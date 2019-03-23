@@ -85,8 +85,6 @@ public class Fork extends Segment {
 	 */
 	public void Select() {
 		System.out.print("Select(): Selects a path at a fork.");
-
-		// TODO implement here
 		if (IsEmpty()) {
 			selectorPath.SelectNextExit();
 
