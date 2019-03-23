@@ -13,16 +13,17 @@ public abstract class LevelContainer {
 	/**
 	 * 
 	 */
-	protected static Level level;
+	private static Level level;
+
+	private static volatile GameTick gameTick = null;
 
 	/**
 	 * 
 	 */
-	protected static TunnelEntrance selected;
+	private static TunnelEntrance selected;
 
 	/**
-	 * @param car
-	 *            This method gets the cars which are arrived at the final station.
+	 * @param car This method gets the cars which are arrived at the final station.
 	 *            If the train is empty, the train waits at the Final Station. If
 	 *            the train is not empty, the game is lost and the level is
 	 *            restarted.
@@ -35,15 +36,11 @@ public abstract class LevelContainer {
 	}
 
 	/**
-	 * @param string
-	 *            Sgm1ID
-	 * @param int
-	 *            end1ID
-	 * @param string
-	 *            Sgm2ID
-	 * @param int
-	 *            end2ID This method starts the process of joining two segments. It
-	 *            is called by the Controller.
+	 * @param string Sgm1ID
+	 * @param        int end1ID
+	 * @param string Sgm2ID
+	 * @param        int end2ID This method starts the process of joining two
+	 *               segments. It is called by the Controller.
 	 */
 	public static void Join(String Sgm1ID, int end1ID, String Sgm2ID, int end2ID) {
 		Segment segment1 = level.FindSegment(Sgm1ID);
@@ -79,18 +76,17 @@ public abstract class LevelContainer {
 	}
 
 	/**
-	 * @param TunnelEntrance
-	 *            te
+	 * @param TunnelEntrance te
 	 */
 	public static boolean IsTunnelPossibleFrom(TunnelEntrance te) {
 		return level.IsTunnelPossibleBetween(te, selected);
 	}
 
 	/**
-	 * @param TunnelEntrance
-	 *            te If the tunnel is possible between the two points, this method
-	 *            clears the current tunnels of the two entrances, creates a new
-	 *            tunnel and sets it for the te and the selected entrance.
+	 * @param TunnelEntrance te If the tunnel is possible between the two points,
+	 *                       this method clears the current tunnels of the two
+	 *                       entrances, creates a new tunnel and sets it for the te
+	 *                       and the selected entrance.
 	 */
 	public static void ConstructFrom(TunnelEntrance te) {
 		te.FullClear();
@@ -102,24 +98,25 @@ public abstract class LevelContainer {
 	}
 
 	/**
-	 * @param Tunnel
-	 *            newTunnel This method registers a new tunnel to the level.
+	 * @param Tunnel newTunnel This method registers a new tunnel to the level.
 	 */
 	public static void addTunnel(Tunnel newTunnel) {
 		level.addTunnel(newTunnel);
 	}
 
 	public static void addSegment(Segment sgm) {
-
 		level.addSegment(sgm);
+	}
+	
+	public static void addLocomotive(Locomotive locomotive) {
+		level.addLcomotive(locomotive);
 	}
 
 	/**
-	 * @param TunnelEntrance
-	 *            te
-	 * @param TunnelEntrance
-	 *            selected This method is called by the above method to check if the
-	 *            tunnel is possible between the two entrances.
+	 * @param TunnelEntrance te
+	 * @param TunnelEntrance selected This method is called by the above method to
+	 *                       check if the tunnel is possible between the two
+	 *                       entrances.
 	 * @return
 	 */
 	public static boolean IsTunnelPossibleBetween(TunnelEntrance te, TunnelEntrance selected) {
@@ -133,17 +130,17 @@ public abstract class LevelContainer {
 		}
 		return false;
 	}
-	
+
 	public static void SelectEntrance(TunnelEntrance te) {
 		selected = te;
-		
+
 	}
 
 	/**
 	 * @param car
 	 */
 	public static void Derailed(Car car) {
-		// TODO implement here
+		Defeat();
 	}
 
 	/**
@@ -155,7 +152,7 @@ public abstract class LevelContainer {
 	}
 
 	public static void Victory(String message) {
-
+		Victory();
 	}
 
 	public static void Victory() {
@@ -163,31 +160,65 @@ public abstract class LevelContainer {
 	}
 
 	public static void Defeat(String message) {
-
+		Defeat();
 	}
 
 	public static void Defeat() {
 		System.out.print("Defeat(): Method called whenever game is lost.");
-
+		if (gameTick != null) {
+			gameTick.run = false;
+			try {
+				gameTick.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			gameTick = null;
+		}
 	}
 
 	public static void Start() {
-		for (Locomotive locomotive : level.trains) {
-
-			locomotive.Step();
-		}
-
+		gameTick = new GameTick(10);
+		gameTick.start();
 	}
 
 	public static void Load(String name) {
+		// no current implementation
+	}
 
-		// ???????????????????????????
-
+	public static void Load(Level level) {
+		LevelContainer.level = level;
 	}
 
 	public static void Stop() {
 		Defeat();
-
 	}
 
+	public static void Tick() {
+		System.out.println("Tick");
+		level.Tick();
+	}
+}
+
+class GameTick extends Thread {
+	public volatile boolean run = false;
+	private final int interval;
+
+	public GameTick(int interval) {
+		run = false;
+		this.interval = interval;
+	}
+
+	@Override
+	public void run() {
+		run = true;
+		while (run) {
+			LevelContainer.Tick();
+			try {
+				sleep(interval);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

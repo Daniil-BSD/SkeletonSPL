@@ -51,7 +51,7 @@ public class Path {
 	}
 	
 	public PathEnd GetEndLogic() {
-		return (PathEnd)cells[this.cells.length - 1].logic;
+		return (PathEnd)cells[this.cells.length - 1].GetLogic();
 	}
 
 	/**

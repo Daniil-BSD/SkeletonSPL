@@ -13,7 +13,8 @@ public abstract class Car {
 	/**
 	 * Default constructor
 	 */
-	public Car() {
+	public Car(Cell cell) {
+		this.cell = cell;
 	}
 
 	/**
@@ -62,10 +63,9 @@ public abstract class Car {
 	 */
 	public void Step() {
 		System.out.print("Step():car move to next cell.\n");
-		if (cell.logic != null)
-			permissionToLeave = cell.logic.LogicRequest(this);
+		permissionToLeave = cell.LogicRequest(this);
 		if (permissionToLeave) {
-			if (nextCell == null)
+			if (nextCell == null && path != null)
 				nextCell = this.path.NextCell(cell);
 			if (nextCell == null) {
 				LevelContainer.Derailed(this);
@@ -73,6 +73,7 @@ public abstract class Car {
 			}
 			if (!this.nextCell.IsOccupied()) {
 				this.cell = this.nextCell;
+				this.nextCell = null;
 				this.path.UpdatePresence(2, cell);
 				if (this.attachedCar != null) {
 					attachedCar.Step();

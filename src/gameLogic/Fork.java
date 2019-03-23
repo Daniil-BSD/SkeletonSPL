@@ -3,94 +3,110 @@ package gameLogic;
 import java.util.*;
 
 /**
- * This class is responsible for directing the train along 
- * the different paths that go out of the fork depending on 
- * the player・s choice.
+ * This class is responsible for directing the train along the different paths
+ * that go out of the fork depending on the player・s choice.
  */
-public class Fork extends Segment{
-    
-    public Fork(String id) {
-    	super(id);
-    	cells = new Cell[17];
-    	int i = 0;
-    	LinkedList<Cell> temp = new LinkedList<Cell>();
-    	LinkedList<Cell> temp2 = new LinkedList<Cell>();
-    	for(; i < 2; i++) {
-    		cells[i] = new Cell();
-    		temp.add(cells[i]);
-    	}
-    	for(; i < 4; i++) {
-    		cells[i] = new Cell();
-    		temp2.add(cells[i]);
-    	}
+public class Fork extends Segment {
+
+	public Fork(String id) {
+		super(id);
+		cells = new Cell[17];
+		int i = 0;
+		LinkedList<Cell> temp = new LinkedList<Cell>();
+		LinkedList<Cell> temp2 = new LinkedList<Cell>();
+		for (; i < 2; i++) {
+			cells[i] = new Cell();
+			temp.add(cells[i]);
+		}
+		for (; i < 4; i++) {
+			cells[i] = new Cell();
+			temp2.add(cells[i]);
+		}
 		selectorPath = new SelectorPath(temp.toArray(new Cell[temp.size()]), temp2.toArray(new Cell[temp2.size()]));
-    	temp = new LinkedList<Cell>();
-    	temp2 = new LinkedList<Cell>();
-    	for(; i < 7; i++) {
-    		cells[i] = new Cell();
-    		temp.add(cells[i]);
-    	}
-    	for(; i < 10; i++) {
-    		cells[i] = new Cell();
-    		temp2.add(cells[i]);
-    	}
-    	path01 = new Path(temp.toArray(new Cell[temp.size()]));
-    	path02 = new Path(temp2.toArray(new Cell[temp2.size()]));
-    	selectorPath.GetEndLogicByIndex(0).Connect(path01.GetStart());
-    	selectorPath.GetEndLogicByIndex(1).Connect(path02.GetStart());
-    	path20 = path02;
-    	path10 = path01;
-    	for(; i < 17; i++) {
-    		cells[i] = new Cell();
-    	}
-    	// paths 20 and 02 are left out as they are not important for the planned demonstrations.
-    	
-    }
-    /**
-     * 
-     */
-    private SelectorPath selectorPath;
+		temp = new LinkedList<Cell>();
+		temp2 = new LinkedList<Cell>();
+		for (; i < 7; i++) {
+			cells[i] = new Cell();
+			temp.add(cells[i]);
+		}
+		for (; i < 10; i++) {
+			cells[i] = new Cell();
+			temp2.add(cells[i]);
+		}
+		path01 = new Path(temp.toArray(new Cell[temp.size()]));
+		path02 = new Path(temp2.toArray(new Cell[temp2.size()]));
+		selectorPath.GetEndLogicByIndex(0).Connect(path01.GetStart());
+		selectorPath.GetEndLogicByIndex(1).Connect(path02.GetStart());
+		path20 = path02;
+		path10 = path01;
+		for (; i < 17; i++) {
+			cells[i] = new Cell();
+		}
+		// paths 20 and 02 are left out as they are not important for the planned
+		// demonstrations.
 
-    /**
-     * This attribute stores one of the fork・s exits.
-     */
-    private Path path20;
+	}
 
-    /**
-     * This attribute stores another exit.
-     */
-    private Path path02;
+	/**
+	 * 
+	 */
+	private SelectorPath selectorPath;
 
+	/**
+	 * This attribute stores one of the fork・s exits.
+	 */
+	private Path path20;
 
-    /**
-     * This method returns true or false respectively if 
-     * the cell out of the fork is occupied by a car or not
-     */
-    public boolean IsEmpty() {
-        System.out.println("IsEmpty(): Checks if the first cell of the path selected is occupied.");
-    	for(Cell cell : this.cells) {
-    		if(cell.IsOccupied()) {
-    			System.out.println("IsEmpty(): If the cell is not occupied, returns true.");
-    			return false;
-    		}
-    	}
-    	System.out.println("IsEmpty(): If the cell is not occupied, returns true.");
-    	return true;
-    }
+	/**
+	 * This attribute stores another exit.
+	 */
+	private Path path02;
 
-    /**
-     *  This method chooses the path for the train on the fork. 
-     *  The first cell of the path should be empty which is checked by 
-     *  this method. It is called by the controller which is controlled by 
-     *  the player.
-     */
-    public void Select() {
-    	System.out.print("Select(): Selects a path at a fork.");
+	/**
+	 * This method returns true or false respectively if the cell out of the fork is
+	 * occupied by a car or not
+	 */
+	public boolean IsEmpty() {
+		System.out.println("IsEmpty(): Checks if the first cell of the path selected is occupied.");
+		for (Cell cell : this.cells) {
+			if (cell.IsOccupied()) {
+				System.out.println("IsEmpty(): If the cell is not occupied, returns true.");
+				return false;
+			}
+		}
+		System.out.println("IsEmpty(): If the cell is not occupied, returns true.");
+		return true;
+	}
 
-        // TODO implement here
-    	if(IsEmpty()) {
-    		selectorPath.SelectNextExit();
-    		
-    	}
-    }
+	/**
+	 * This method chooses the path for the train on the fork. The first cell of the
+	 * path should be empty which is checked by this method. It is called by the
+	 * controller which is controlled by the player.
+	 */
+	public void Select() {
+		System.out.print("Select(): Selects a path at a fork.");
+
+		// TODO implement here
+		if (IsEmpty()) {
+			selectorPath.SelectNextExit();
+
+		}
+	}
+
+	// Method purely for skeleton
+	/**
+	 * 
+	 * 
+	 * this method returns a cell where a locomotive should be placed for
+	 * demonstraton
+	 */
+	public Cell GET_DEMO_CELL(int index) {
+		index %= 3;
+		if (index == 1)
+			return cells[5];
+		if (index == 2)
+			return cells[8];
+		return cells[0];
+	}
+
 }

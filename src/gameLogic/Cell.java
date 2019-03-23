@@ -8,21 +8,28 @@ import java.util.*;
 public class Cell {
 
     /**
-     * Default constructor
+     * This attribute stores true if the cell is occupied by a car, false otherwise. 
      */
-    public Cell() {
-    }
+    private Boolean occupied;
 
     /**
      * This attribute stores the logic which decides the next move for the car.
      */
-    protected CellLogic logic;
+    private CellLogic logic;
+    
 
     /**
-     * This attribute stores true if the cell is occupied by a car, false otherwise. 
+     * Default constructor
      */
-    private Boolean occupied;
+    public Cell() {
+    	occupied = false;
+    }
     
+    
+    public boolean LogicRequest(Car car) {
+    	if (logic != null) return logic.LogicRequest(car);
+    	return true;
+    }
     
     public CellLogic GetLogic() {
 		return logic;

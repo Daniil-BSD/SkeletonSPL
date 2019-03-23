@@ -83,15 +83,16 @@ public abstract class ConsoleInterpreter {
 				}catch(NumberFormatException e) {
 					System.out.println("Incorrect input");
 				}
-				//тут какая то жирнющая логика, сделай плес
 			}
 			if(command[0].equals("start")) {
-				
+
+				System.out.println("//starting the game");
 				LevelContainer.Start();
 				
 			}
 			if(command[0].equals("stop")) {
-				
+
+				System.out.println("//stopping the game");
 				LevelContainer.Stop();
 				
 			}
@@ -101,19 +102,14 @@ public abstract class ConsoleInterpreter {
 				
 			}
 			
-			
-			
-			
-			
-
 			if(command[0].equals("init") && command.length > 1) {
 				if(command[1].equals("level")) {
 					LevelInitializer.LevelConstructionDemoInitializer();
-					System.out.print("//Initializing Level for Level Construction Demonstration");
+					System.out.println("//Initializing Level for Level Construction Demonstration");
 				}
 				if(command[1].equals("fork")) {
 					LevelInitializer.ForkDemoInitializer();
-					System.out.print("//Initializing Level for Fork Demonstration");
+					System.out.println("//Initializing Level for Fork Demonstration");
 				}
 			}
 			if(command[0].equals("quit")) {

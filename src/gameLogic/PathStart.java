@@ -25,7 +25,7 @@ public class PathStart implements CellLogic {
      * @param car
      */
     public boolean LogicRequest(Car car) {
-        // TODO implement here
+        System.out.println("path set");
     	car.SetPath(path);
     	return true;
     }

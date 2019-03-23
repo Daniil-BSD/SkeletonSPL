@@ -10,7 +10,8 @@ public class Locomotive extends Car {
     /**
      * Default constructor
      */
-    public Locomotive() {
+    public Locomotive(Cell cell) {
+    	super(cell);
     }
 
 	@Override

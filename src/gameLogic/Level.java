@@ -40,7 +40,9 @@ public class Level {
     
     
     public void Tick() {
-        // TODO implement here
+        for (Locomotive locomotive : trains) {
+			locomotive.Step();
+		}
     }
 
     /**
@@ -87,12 +89,15 @@ public class Level {
      *  the LevelContainer class.
      */
     public void addTunnel(Tunnel newTunnel) {
-       this.tunnels.add(newTunnel);
+       tunnels.add(newTunnel);
     }
     
     public void addSegment(Segment sgm) {
-    	
     	segments.add(sgm);
     }
+    
+    public void addLcomotive(Locomotive locomotive) {
+		trains.add(locomotive);
+	}
 
 }

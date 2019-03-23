@@ -55,7 +55,7 @@ public class TunnelEntrance extends Segment {
     			LevelContainer.ConstructFrom(this);
     		}
     		if(LevelContainer.IsThisSelected(this)) {
-        		LevelContainer.selected = null;
+        		//LevelContainer.selected = null;
         		
         	}
     		LevelContainer.SelectEntrance(this);

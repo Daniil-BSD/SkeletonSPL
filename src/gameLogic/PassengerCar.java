@@ -8,7 +8,9 @@ public class PassengerCar extends Car {
 	/**
 	 * Default constructor
 	 */
-	public PassengerCar() {
+	public PassengerCar(Cell cell, Colors color) {
+		super(cell);
+		this.color = color;
 	}
 
 	/**
