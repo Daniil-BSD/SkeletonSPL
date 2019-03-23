@@ -19,6 +19,7 @@ public class Main {
 		// trying to fix
 		System.out.println("I, Wu, have commited a change!");
 		System.out.println("I, Alen, have commited a change!!");
+		System.out.println("I, Brenda, have commited a change!!");
 	}
 
 }
