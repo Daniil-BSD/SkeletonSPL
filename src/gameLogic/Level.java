@@ -49,10 +49,14 @@ public class Level {
      * @return 
      */
     public Segment FindSegment(String sgmID) {
-        for(Segment sg : segments) {
+    	System.out.println(">FindSegment(string id): Looks for segment in this level.");
+    	System.out.println("//loops through the segments in this level.");
+    	for(Segment sg : segments) {
         	if(sg.AreYou(sgmID))
+        		System.out.println("<FindSegment(string id): reference to a first entrance(null if doesn’t exist.)");
         		return sg;
         }
+        System.out.println("<FindSegment(string id): reference to a first entrance(null if doesn’t exist.)");
         return null;
     }
     /**
@@ -63,11 +67,14 @@ public class Level {
      *  this method. Returns false otherwise.
      */
     public boolean IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2) {
+System.out.println(">IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2): checks if the tunnel is possible between the entrances by looking into the level’s tunnel collection.");
         for(Tunnel tunnel : tunnels) {
         	if(te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)) {
+        		System.out.println("<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
         		return true;
         	}
         }
+        System.out.println("<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
         return false;
     }
     

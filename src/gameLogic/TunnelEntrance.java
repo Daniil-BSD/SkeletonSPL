@@ -33,6 +33,7 @@ public class TunnelEntrance extends Segment {
      * This method sets the tunnel of both entrances to null.
      */
     public void FullClear() {
+    	System.out.println(">>FullClear(): Clears the tunnels for both entrances if the tunnel was set previously. This is checked two times. For the entrance te1 and for the entrance te2.\n");
        tunnel.GetTheOtherEnd(this).Clear();
        Clear();
     }
@@ -47,7 +48,7 @@ public class TunnelEntrance extends Segment {
     
     
     public void Select() {
-    	
+    	System.out.println(">>Select(TunnelEntrance te): Selects the entrance referenced by the FindSegment() method.\n");
     	if(LevelContainer.IsEntranceSelected()) {
     		
     		if(LevelContainer.IsTunnelPossibleFrom(this)) {
