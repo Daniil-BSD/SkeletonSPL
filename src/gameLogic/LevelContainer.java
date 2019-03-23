@@ -62,7 +62,9 @@ public abstract class LevelContainer {
 	}
 
 	public static Segment FindSegment(String sgmID) {
-
+		System.out.println("FindSegment(string id): Looks for a segment with the same id.\n");
+		
+		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)\n");
 		return level.FindSegment(sgmID);
 	}
 
@@ -71,7 +73,8 @@ public abstract class LevelContainer {
 	 *         construct a tunnel between two points.
 	 */
 	public static boolean IsEntranceSelected() {
-
+		System.out.println(">IsEntranceSelected(): Checks if another entrance is selected.");
+		System.out.println("<IsEntranceSelected(): Returns a boolean value. In this case it’s false.");
 		return selected != null;
 	}
 
@@ -79,6 +82,9 @@ public abstract class LevelContainer {
 	 * @param TunnelEntrance te
 	 */
 	public static boolean IsTunnelPossibleFrom(TunnelEntrance te) {
+		System.out.println(">IsTunnelPossibleFrom(TunnelEntrance te1): checks if the tunnel is possible from the given entrance.\n");
+		
+		System.out.println(">IsTunnelPossibleFrom(TunnelEntrance te1): Returns a boolean value.\n");
 		return level.IsTunnelPossibleBetween(te, selected);
 	}
 
@@ -89,6 +95,7 @@ public abstract class LevelContainer {
 	 *                       and the selected entrance.
 	 */
 	public static void ConstructFrom(TunnelEntrance te) {
+		System.out.println(">>ConstructFrom(TunnelEntrance te1): Construct a tunnel from the first entrance.\n");
 		te.FullClear();
 		selected.FullClear();
 		Tunnel newTunnel = LevelContainer.level.GetTunnelBetween(te, selected);
