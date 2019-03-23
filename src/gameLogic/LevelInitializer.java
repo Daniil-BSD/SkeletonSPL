@@ -21,6 +21,7 @@ class LoggerCell implements CellLogic{
 	
 	public LoggerCell(String output) {
 		this.output = output;
+		
 	}
 
 	@Override

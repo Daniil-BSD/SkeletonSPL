@@ -8,8 +8,6 @@ import java.util.*;
  * which is implemented by this class.
  */
 public class TunnelEntrance extends Segment {
-
-	
 	
     /**
      * Default constructor
