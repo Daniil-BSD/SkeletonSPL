@@ -41,12 +41,14 @@ public class Fork extends Segment{
      * the cell out of the fork is occupied by a car or not
      */
     public boolean IsEmpty() {
-        
+        System.out.println("IsEmpty(): Checks if the first cell of the path selected is occupied.");
     	for(Cell cell : this.cells) {
     		if(cell.IsOccupied()) {
+    			System.out.println("IsEmpty(): If the cell is not occupied, returns true.");
     			return false;
     		}
     	}
+    	System.out.println("IsEmpty(): If the cell is not occupied, returns true.");
     	return true;
     }
 

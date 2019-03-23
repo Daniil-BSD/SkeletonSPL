@@ -28,6 +28,9 @@ public class Cell {
      * This method returns the value depending on the occupied attribute.
      */
     public boolean IsOccupied() {
+    	System.out.print("IsOccupied(): Check if this cell is occupied\n");
+    	
+    	System.out.print("IsOccupied(): Returns false if cell is not occupied\n");
     	return occupied;
     }
 

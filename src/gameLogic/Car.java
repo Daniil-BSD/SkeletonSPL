@@ -61,6 +61,7 @@ public abstract class Car {
 	 * color. It will be bound to the system clock.
 	 */
 	public void Step() {
+		System.out.print("Step():car move to next cell.\n");
 		if (cell.logic != null)
 			permissionToLeave = cell.logic.LogicRequest(this);
 		if (permissionToLeave) {
@@ -101,6 +102,9 @@ public abstract class Car {
 	 * if not.
 	 */
 	public boolean IsLocomotive() {
+		System.out.print("IsLocomotive(): check if the car is a locomotive.\n");
+		
+		System.out.print("IsLocomotive(): true if it is a locomotive. \n");
 		return false;
 
 	}
@@ -111,9 +115,12 @@ public abstract class Car {
 	 *        colors. If they do, it then drops the passengers.
 	 */
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
+		System.out.print("CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
 		if (attachedCar != null) {
+			System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 			return attachedCar.CurrentlyAtTheStation(colors);
 		}
+		System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 		return false;
 	}
 
@@ -122,7 +129,10 @@ public abstract class Car {
 	 * respectively.
 	 */
 	public boolean IsEmpty() {
+		System.out.print("IsEmpty():Recursive function that checks if all passenger cars are empty\n");
 		attachedCar.IsEmpty();
+
+		System.out.print("IsEmpty():true if all cars behind are empty.	\n");
 		return true;
 	}
 

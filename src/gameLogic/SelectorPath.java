@@ -21,6 +21,7 @@ public class SelectorPath extends Path {
      * This method chooses the path out of the fork.
      */
     public void SelectNextExit() {
+    	System.out.println("SelectNextExit(): Selects the next exit of the path.");
         // TODO implement here
     }
 
