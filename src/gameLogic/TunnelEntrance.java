@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class TunnelEntrance extends Segment {
 
+	
+	
     /**
      * Default constructor
      */
@@ -39,7 +41,7 @@ public class TunnelEntrance extends Segment {
      * This method sets the tunnel for the current Tunnel Entrance.
      */
     public void SetTunnel(Tunnel newTunnel) {
-        // TODO implement here
+        this.tunnel = newTunnel;
     }
 
 }

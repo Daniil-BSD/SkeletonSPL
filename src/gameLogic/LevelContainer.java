@@ -17,7 +17,7 @@ public abstract class LevelContainer {
     /**
      * 
      */
-    private static TunnelEntrance selected;
+    protected static TunnelEntrance selected;
 
 
     /**
@@ -96,7 +96,7 @@ public abstract class LevelContainer {
      * This method registers a new tunnel to the level.
      */
     public static void addTunnel(Tunnel newTunnel) {
-        // TODO implement here
+       level.addTunnel(newTunnel);
     }
 
     
@@ -110,9 +110,10 @@ public abstract class LevelContainer {
      * @param TunnelEntrance selected
      * This method is called by the above method to check 
      * if the tunnel is possible between the two entrances. 
+     * @return 
      */
-    public static void IsTunnelPossibleBetween(TunnelEntrance te, TunnelEntrance selected) {
-        // TODO implement here
+    public static boolean IsTunnelPossibleBetween(TunnelEntrance te, TunnelEntrance selected) {
+        return level.IsTunnelPossibleBetween(te, selected);
     }
     
     
@@ -149,7 +150,23 @@ public abstract class LevelContainer {
     	System.out.print("Defeat(): Method called whenever game is lost.");
 
     }
+    public static void Start() {
+    	for(Locomotive locomotive : level.trains) {
+    		
+    		locomotive.Step();
+    	}
+    	
+    }
+    public static void Load(String name) {
+    	
+    	//???????????????????????????
+    	
+    }
     
+    public static void Stop() {
+    	Defeat();
+    	
+    }
     
 
 }

@@ -17,21 +17,25 @@ public class Level {
     /**
      * This attribute stores the trains of the level.
      */
-    private ArrayList<Locomotive> trains;
+    protected ArrayList<Locomotive> trains;
 
     /**
      *  Segments of the level are stored by this attribute
      */
-    private ArrayList<Segment> segments;
+    protected ArrayList<Segment> segments;
     
     /**
      *  Stores the tunnels of the level.
      */
-    private ArrayList<Tunnel> tunnels;
+    protected ArrayList<Tunnel> tunnels;
 
     /**
      *  System clock is implemented by this method.
      */
+    
+    protected String name;
+    
+    
     public void Tick() {
         // TODO implement here
     }
@@ -55,8 +59,13 @@ public class Level {
      *  is possible between the selected point and the entrance which was passed to 
      *  this method. Returns false otherwise.
      */
-    public void IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2) {
-        // TODO implement here
+    public boolean IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2) {
+        for(Tunnel tunnel : tunnels) {
+        	if(te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)) {
+        		return true;
+        	}
+        }
+        return false;
     }
 
     /**
@@ -65,7 +74,7 @@ public class Level {
      *  the LevelContainer class.
      */
     public void addTunnel(Tunnel newTunnel) {
-        // TODO implement here
+       this.tunnels.add(newTunnel);
     }
     
     public void addSegment(Segment sgm) {

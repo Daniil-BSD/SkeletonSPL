@@ -111,4 +111,14 @@ public abstract class Segment {
         // TODO implement here
     }
 
+	public Path GetPathEndingWith(int endID) {
+		
+		if(endID == 0) 
+        	return path01;
+        if(endID == 1) 
+        	return path10;
+        return null;
+		
+	}
+
 }

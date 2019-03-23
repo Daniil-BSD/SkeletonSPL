@@ -17,15 +17,21 @@ public class Tunnel extends Segment {
     public Tunnel(String id) {
     	this.id = id;
     }
+    
+    public Tunnel(TunnelEntrance entrance1, TunnelEntrance entrance2) {
+    	this.entrance0 = entrance1;
+    	this.entrance1 = entrance2;
+    	
+    }
     /**
      * This attribute stores one entrance of the tunnel.
      */
-    private TunnelEntrance entrance0;
+    protected TunnelEntrance entrance0;
 
     /**
      *  This attribute stores another entrance of the tunnel.
      */
-    private TunnelEntrance entrance1;
+    protected TunnelEntrance entrance1;
 
     /**
      * @param TunnelEntrance te
