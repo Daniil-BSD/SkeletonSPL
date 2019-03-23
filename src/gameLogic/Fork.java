@@ -8,18 +8,44 @@ import java.util.*;
  * the player¡¦s choice.
  */
 public class Fork extends Segment{
-
-    /**
-     * Default constructor
-     */
-    public Fork() {
-    }
     
     public Fork(String id) {
-    	this.id = id;
+    	super(id);
+    	cells = new Cell[17];
+    	int i = 0;
+    	LinkedList<Cell> temp = new LinkedList<Cell>();
+    	LinkedList<Cell> temp2 = new LinkedList<Cell>();
+    	for(; i < 2; i++) {
+    		cells[i] = new Cell();
+    		temp.add(cells[i]);
+    	}
+    	for(; i < 4; i++) {
+    		cells[i] = new Cell();
+    		temp2.add(cells[i]);
+    	}
+		selectorPath = new SelectorPath(temp.toArray(new Cell[temp.size()]), temp2.toArray(new Cell[temp2.size()]));
+    	temp = new LinkedList<Cell>();
+    	temp2 = new LinkedList<Cell>();
+    	for(; i < 7; i++) {
+    		cells[i] = new Cell();
+    		temp.add(cells[i]);
+    	}
+    	for(; i < 10; i++) {
+    		cells[i] = new Cell();
+    		temp2.add(cells[i]);
+    	}
+    	path01 = new Path(temp.toArray(new Cell[temp.size()]));
+    	path02 = new Path(temp2.toArray(new Cell[temp2.size()]));
+    	selectorPath.GetEndLogicByIndex(0).Connect(path01.GetStart());
+    	selectorPath.GetEndLogicByIndex(1).Connect(path02.GetStart());
+    	path20 = path02;
+    	path10 = path01;
+    	for(; i < 17; i++) {
+    		cells[i] = new Cell();
+    	}
+    	// paths 20 and 02 are left out as they are not important for the planned demonstrations.
     	
     }
-
     /**
      * 
      */

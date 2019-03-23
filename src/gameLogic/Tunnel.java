@@ -6,16 +6,10 @@ import java.util.*;
  * This class is responsible for the tunnels which connect the two entrances.
  */
 public class Tunnel extends Segment {
-
-    /**
-     * Default constructor
-     */
-    public Tunnel() {
-    }
     
     
     public Tunnel(String id) {
-    	this.id = id;
+    	super(id);
     }
     /**
      * This attribute stores one entrance of the tunnel.

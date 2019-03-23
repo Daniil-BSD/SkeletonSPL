@@ -7,17 +7,9 @@ import java.util.*;
  * passengers embark or disembark.
  */
 public class Station extends Segment {
-
-    /**
-     * Default constructor
-     */
-    public Station() {
-    }
-    
     
     public Station(String id) {
-    	
-    	this.id = id;
+    	super(id);
     }
     /**
      * 
@@ -34,9 +26,9 @@ public class Station extends Segment {
      * @return 
      */
     public Colors[] GetColors() {
-    	System.out.print("GetColors(): Requests parent station for colors.\n");
+    	System.out.print(">GetColors(): Requests parent station for colors.\n");
         // TODO implement here
-    	System.out.print("GetColors(): Set of colors accepted by the station.\n");
+    	System.out.print("<GetColors(): Set of colors accepted by the station.\n");
     	return colors;
     }
 

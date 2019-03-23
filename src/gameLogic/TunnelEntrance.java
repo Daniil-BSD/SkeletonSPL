@@ -12,7 +12,8 @@ public class TunnelEntrance extends Segment {
     /**
      * Default constructor
      */
-    private TunnelEntrance() {
+    private TunnelEntrance(String id) {
+    	super(id);
     }
 
     /**

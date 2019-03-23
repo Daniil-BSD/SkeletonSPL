@@ -15,7 +15,8 @@ public class FinalStation extends Station {
     /**
      * Default constructor
      */
-    public FinalStation() {
+    public FinalStation(String id) {
+    	super(id);
     }
 
     @Override

@@ -1,4 +1,7 @@
 package main;
+
+import java.io.*;
+
 /**
  * 
  */
@@ -12,14 +15,22 @@ public class Main {
 	/**
 	 * @param args
 	 */
+	
+	public static volatile boolean run = true;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("I, Daniil, have commited a change!");
-		System.out.println("I, Chen, have commited a change!");
-		// trying to fix
-		System.out.println("I, Wu, have commited a change!");
-		System.out.println("I, Alen, have commited a change!!");
-		System.out.println("I, Brenda, have commited a change!!");
+		run = true;
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+		System.out.println("Input thecommands:");
+		while (run) {
+			try {
+				ConsoleInterpreter.ConsoleLine( br.readLine());
+			} catch (IOException e) {
+				e.printStackTrace();
+				break;
+			}
+		}
+		System.out.println("Application Terminated.");
 	}
 
 }
