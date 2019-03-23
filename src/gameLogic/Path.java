@@ -21,9 +21,10 @@ public class Path {
      *  which is next to it along the same path.
      */
     public Cell NextCell(Cell cell) {
+    	System.out.print("NextCell(Cell cell): Asks Path for the cell after the given one.\n");
         // TODO implement here
+    	System.out.print("NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
     	return cells[0]; //need to finish this!!!
-    	
     }
     
     public Cell GetStart() {

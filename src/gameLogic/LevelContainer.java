@@ -27,6 +27,8 @@ public abstract class LevelContainer {
      * If the train is not empty, the game is lost and the level is restarted.  
      */
     public static void FinalReport(Car car) {
+    	System.out.print("FinalReport(Car car): reports to the station that the train has let all possible passengers disembark at the final station.\n");
+
     	car.IsEmpty();
     }
 
@@ -127,7 +129,8 @@ public abstract class LevelContainer {
      * @param car
      */
     public static void Collided(Car car) {
-        // TODO implement here
+    	System.out.print("Collided(Locomotive locomotive): tells the level that trains collided");
+// TODO implement here
     }
     
     public static void Victory(String message) {
@@ -135,7 +138,7 @@ public abstract class LevelContainer {
     }
     
     public static void Victory() {
-    	
+    	System.out.print("Victory(): Method called whenever game is completed.\n");
     }
     
     public static void Defeat(String message) {
@@ -143,7 +146,8 @@ public abstract class LevelContainer {
     }
     
     public static void Defeat() {
-    	
+    	System.out.print("Defeat(): Method called whenever game is lost.");
+
     }
     
     
