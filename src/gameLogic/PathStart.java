@@ -10,7 +10,8 @@ public class PathStart implements CellLogic {
     /**
      * Default constructor
      */
-    public PathStart() {
+    public PathStart(Path path) {
+    	this.path = path;
     }
 
     /**

@@ -67,19 +67,20 @@ public abstract class Car {
 		if (permissionToLeave) {
 			if (nextCell == null)
 				nextCell = this.path.NextCell(cell);
-			if (nextCell == null)
+			if (nextCell == null) {
 				LevelContainer.Derailed(this);
-		}
-		if (!this.nextCell.IsOccupied()) {
-
-			this.cell = this.nextCell;
-			this.path.UpdatePresence(4, cell);
-			if (this.attachedCar != null) {
-				Step();
+				return;
 			}
+			if (!this.nextCell.IsOccupied()) {
+				this.cell = this.nextCell;
+				this.path.UpdatePresence(2, cell);
+				if (this.attachedCar != null) {
+					attachedCar.Step();
+				}
 
-		} else
-			LevelContainer.Collided(this);
+			} else
+				LevelContainer.Collided(this);
+		}
 
 	}
 
@@ -103,7 +104,7 @@ public abstract class Car {
 	 */
 	public boolean IsLocomotive() {
 		System.out.print("IsLocomotive(): check if the car is a locomotive.\n");
-		
+
 		System.out.print("IsLocomotive(): true if it is a locomotive. \n");
 		return false;
 
@@ -115,12 +116,15 @@ public abstract class Car {
 	 *        colors. If they do, it then drops the passengers.
 	 */
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
-		System.out.print("CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
+		System.out.print(
+				"CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
 		if (attachedCar != null) {
-			System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+			System.out.print(
+					"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 			return attachedCar.CurrentlyAtTheStation(colors);
 		}
-		System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+		System.out
+				.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 		return false;
 	}
 

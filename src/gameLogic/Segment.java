@@ -14,7 +14,12 @@ public abstract class Segment {
     /**
      * Default constructor
      */
-    public Segment() {
+	protected Segment() {
+		this.id = "12341";
+	}
+	
+    public Segment(String id) {
+    	this.id = id;
     }
     
     protected Cell cells[];
@@ -42,7 +47,7 @@ public abstract class Segment {
     /**
      * 
      */
-    protected String id;
+    protected final String id;
 
 
 

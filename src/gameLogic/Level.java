@@ -12,6 +12,9 @@ public class Level {
      * Default constructor
      */
     public Level() {
+    	trains = new ArrayList<Locomotive>();
+    	segments = new ArrayList<Segment>();
+    	tunnels = new ArrayList<Tunnel>();
     }
 
     /**
@@ -66,6 +69,16 @@ public class Level {
         	}
         }
         return false;
+    }
+    
+    public Tunnel GetTunnelBetween(TunnelEntrance te1, TunnelEntrance te2) {
+    	
+    	 for(Tunnel tunnel : tunnels) {
+         	if(te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)||te1.equals(tunnel.entrance1) && te2.equals(tunnel.entrance0)) {
+         		return tunnel;
+         	}
+         }
+         return null;
     }
 
     /**

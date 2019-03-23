@@ -6,16 +6,10 @@ import java.util.*;
  * This class is responsible for the tunnels which connect the two entrances.
  */
 public class Tunnel extends Segment {
-
-    /**
-     * Default constructor
-     */
-    public Tunnel() {
-    }
     
     
     public Tunnel(String id) {
-    	this.id = id;
+    	super(id);
     }
     
     public Tunnel(TunnelEntrance entrance1, TunnelEntrance entrance2) {
@@ -37,8 +31,10 @@ public class Tunnel extends Segment {
      * @param TunnelEntrance te
      * This method returns the other end of the tunnel passed on to this method as te.
      */
-    public void TunnelEntranceGetTheOtherEnd(TunnelEntrance te) {
-        // TODO implement here
+    public TunnelEntrance GetTheOtherEnd(TunnelEntrance te) {
+        if(te.equals(entrance0))
+        	return entrance1;
+        return entrance0;
     }
 
 }

@@ -20,20 +20,21 @@ public class TunnelEntrance extends Segment {
     /**
      * This attribute stores the tunnel which corresponds to the given entrance.
      */
-    private Tunnel tunnel;
+    protected Tunnel tunnel;
 
     /**
      * This method sets the entrance of the tunnel to null.
      */
     public void Clear() {
-        // TODO implement here
+        tunnel = null;
     }
 
     /**
      * This method sets the tunnel of both entrances to null.
      */
     public void FullClear() {
-        // TODO implement here
+       tunnel.GetTheOtherEnd(this).Clear();
+       Clear();
     }
 
     /**
@@ -43,5 +44,24 @@ public class TunnelEntrance extends Segment {
     public void SetTunnel(Tunnel newTunnel) {
         this.tunnel = newTunnel;
     }
-
+    
+    
+    public void Select() {
+    	
+    	if(LevelContainer.IsEntranceSelected()) {
+    		
+    		if(LevelContainer.IsTunnelPossibleFrom(this)) {
+    			
+    			LevelContainer.ConstructFrom(this);
+    		}
+    		if(LevelContainer.IsThisSelected(this)) {
+        		LevelContainer.selected = null;
+        		
+        	}
+    		LevelContainer.SelectEntrance(this);
+    		
+    	}
+    	
+    	
+    }
 }

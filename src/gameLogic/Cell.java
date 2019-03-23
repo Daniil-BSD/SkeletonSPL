@@ -22,9 +22,18 @@ public class Cell {
      * This attribute stores true if the cell is occupied by a car, false otherwise. 
      */
     private Boolean occupied;
+    
+    
+    public CellLogic GetLogic() {
+		return logic;
+	}
 
 
-    /**
+	public void SetLogic(CellLogic logic) {
+		this.logic = logic;
+	}
+	
+	/**
      * This method returns the value depending on the occupied attribute.
      */
     public boolean IsOccupied() {
