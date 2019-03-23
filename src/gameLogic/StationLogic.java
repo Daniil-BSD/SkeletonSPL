@@ -27,9 +27,11 @@ public class StationLogic implements CellLogic {
      */
     @Override
     public boolean LogicRequest(Car car) {
+    	System.out.print("LogicRequest(Car car): Performs actions assigned to this cell.\n");
     	if(car.IsLocomotive()) {
     		Colors colors[] = parentStation.GetColors();
     		if(car.CurrentlyAtTheStation(colors)) {
+    			System.out.print("LogicRequest(Car car): Permission to leave the station.\n");
     			return false;
     		}else {
     			if(parentStation.IsFinal()) {
@@ -37,13 +39,17 @@ public class StationLogic implements CellLogic {
     					finalReportFlag = true;
     					LevelContainer.FinalReport(car);
     				}
+    		    	System.out.print("LogicRequest(Car car): Permission to leave the station.\n");
     				return false;
     			}
+    			System.out.print("LogicRequest(Car car): Permission to leave the station.\n");
     			return true;
     		}
     		
     	}
+    	System.out.print("LogicRequest(Car car): Permission to leave the station.\n");
     	return true;
     }
+
 
 }
