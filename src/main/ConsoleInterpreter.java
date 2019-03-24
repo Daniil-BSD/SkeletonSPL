@@ -20,7 +20,7 @@ public abstract class ConsoleInterpreter {
 		Segment presentSegment = null;
 
 	
-
+		System.out.println("//input is split into commands[]");
 		String[] command = input.split(" ");
 		if(command.length > 0 ) {
 

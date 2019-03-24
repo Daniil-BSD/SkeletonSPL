@@ -26,6 +26,7 @@ public class TunnelEntrance extends Segment {
      * This method sets the entrance of the tunnel to null.
      */
     public void Clear() {
+    	System.out.println(">>Clear(): Sets the tunnel for te2 to null.");
         tunnel = null;
     }
 
@@ -43,6 +44,7 @@ public class TunnelEntrance extends Segment {
      * This method sets the tunnel for the current Tunnel Entrance.
      */
     public void SetTunnel(Tunnel newTunnel) {
+    	System.out.println(">>SetTunnel(Tunnel newTunnel): Sets the new tunnel for one of the entrances.");
         this.tunnel = newTunnel;
     }
     

@@ -101,7 +101,6 @@ public abstract class LevelContainer {
 	public static void ConstructFrom(TunnelEntrance te) {
 		System.out.println(">>ConstructFrom(TunnelEntrance te1): Construct a tunnel from the first entrance.\n");
 		te.FullClear();
-		selected.FullClear();
 		Tunnel newTunnel = LevelContainer.level.GetTunnelBetween(te, selected);
 		te.SetTunnel(newTunnel);
 		selected.SetTunnel(newTunnel);
@@ -134,10 +133,13 @@ public abstract class LevelContainer {
 	}
 
 	public static boolean IsThisSelected(TunnelEntrance te) {
+		System.out.println(">IsThisSelected(TunnelEntrance te1): Check if the same entrance was selected already.");
 		if (selected == te) {
+			System.out.println("<IsThisSelected(TunnelEntrance te1): Returns a boolean value if the two entrances are the same point.");
 			return true;
 
 		}
+		System.out.println("<IsThisSelected(TunnelEntrance te1): Returns a boolean value if the two entrances are the same point.");
 		return false;
 	}
 	

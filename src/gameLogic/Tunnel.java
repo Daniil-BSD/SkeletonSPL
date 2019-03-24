@@ -32,8 +32,14 @@ public class Tunnel extends Segment {
      * This method returns the other end of the tunnel passed on to this method as te.
      */
     public TunnelEntrance GetTheOtherEnd(TunnelEntrance te) {
+    	System.out.println(">GetOtherEnd(te1): Gets the second entrance we selected.");
         if(te.equals(entrance0))
+        	{
+        	
+        	System.out.println("<GetOtherEnd(te1): Returns a reference to another entrance. te2 in this case.");
         	return entrance1;
+        	}
+        System.out.println("<GetOtherEnd(te1): Returns a reference to another entrance. te2 in this case.");
         return entrance0;
     }
 
