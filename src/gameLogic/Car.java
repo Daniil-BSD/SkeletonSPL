@@ -122,14 +122,14 @@ abstract class Car {
 	 */
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
 		System.out.print(
-				">CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
+				"\t>CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
 		if (attachedCar != null) {
 			System.out.print(
-					"<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+					"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 			return attachedCar.CurrentlyAtTheStation(colors);
 		}
 		System.out
-				.print("<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+				.print("\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 		return false;
 	}
 

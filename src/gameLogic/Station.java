@@ -52,9 +52,9 @@ class Station extends Segment {
 	 * @return
 	 */
 	public Colors[] GetColors() {
-		System.out.print(">GetColors(): Requests parent station for colors.\n");
+		System.out.print("\t>GetColors(): Requests parent station for colors.\n");
 		// TODO implement here
-		System.out.print("<GetColors(): Set of colors accepted by the station.\n");
+		System.out.print("\t<GetColors(): Set of colors accepted by the station.\n");
 		return colors;
 	}
 

@@ -33,11 +33,13 @@ class Cell {
     public boolean LogicRequest(Car car) {
     	System.out.println("\t>LogicRequest(Car car): Decides if the train can leave the current cell and advance to the next cell along the path. ");
     	if (logic != null) {
-    		System.out.print("\t\t>LogicRequest(Car car): Performs actions assigned to this cell.\n");
-    		System.out.println("\t\t\t//car gets next cell.");
-        	System.out.print("\t\t<LogicRequest(Car car): Permission to leave the station.\n");
+    		System.out.print("\t>LogicRequest(Car car): Performs actions assigned to this cell.\n");
+    		System.out.println("\t\t//car gets next cell.");    		
+    		Boolean messageBool = logic.LogicRequest(car);
+
+        	System.out.print("\t<LogicRequest(Car car): Permission to leave the station.\n");
     		System.out.println("\t<LogicRequest(Car car): Permission to leave the station.");
-        	return logic.LogicRequest(car);
+        	return messageBool;
     	}
 
 		System.out.println("\t<LogicRequest(Car car): Permission to leave the station.");
