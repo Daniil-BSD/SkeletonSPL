@@ -9,11 +9,11 @@ import javax.xml.ws.handler.LogicalHandler;
  * locomotive and the passenger car which are derived from this class.
  */
 public abstract class Car {
-
 	/**
 	 * Default constructor
 	 */
-	public Car() {
+	public Car(Cell cell) {
+		this.cell = cell;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public abstract class Car {
 	 * train is moved by a locomotive which is a car, so cars should be connected
 	 * with each other for this to work.
 	 */
-	protected Car attachedCar;
+	private Car attachedCar;
 
 	/**
 	 * This attribute is here because of the cell logic. This is needed for the
@@ -62,10 +62,9 @@ public abstract class Car {
 	 */
 	public void Step() {
 		System.out.print("Step():car move to next cell.\n");
-		if (cell.logic != null)
-			permissionToLeave = cell.logic.LogicRequest(this);
+		permissionToLeave = cell.LogicRequest(this);
 		if (permissionToLeave) {
-			if (nextCell == null)
+			if (nextCell == null && path != null)
 				nextCell = this.path.NextCell(cell);
 			if (nextCell == null) {
 				LevelContainer.Derailed(this);
@@ -73,6 +72,7 @@ public abstract class Car {
 			}
 			if (!this.nextCell.IsOccupied()) {
 				this.cell = this.nextCell;
+				this.nextCell = null;
 				this.path.UpdatePresence(2, cell);
 				if (this.attachedCar != null) {
 					attachedCar.Step();
@@ -82,6 +82,10 @@ public abstract class Car {
 				LevelContainer.Collided(this);
 		}
 
+	}
+	
+	public void attach(Car car) {
+		attachedCar = car;
 	}
 
 	/**
@@ -134,10 +138,11 @@ public abstract class Car {
 	 */
 	public boolean IsEmpty() {
 		System.out.print("IsEmpty():Recursive function that checks if all passenger cars are empty\n");
-		attachedCar.IsEmpty();
+		if (attachedCar != null)
+		return attachedCar.IsEmpty();
 
 		System.out.print("IsEmpty():true if all cars behind are empty.	\n");
-		return true;
+		return false;
 	}
 
 }

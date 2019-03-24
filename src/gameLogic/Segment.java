@@ -59,7 +59,6 @@ public abstract class Segment {
      *  string identifier. It is needed in order to build the level by connecting segments.
      */
     public boolean AreYou(String segmentID) {
-    	
         if(segmentID == id)
         	return true;
         return false;
@@ -70,8 +69,10 @@ public abstract class Segment {
      *  This attribute is needed to find a needed segment in the level by its 
      *  reference. It is needed in order to build the level by connecting segments.
      */
-    public void AreYou(Segment segment) {
-        // TODO implement here
+    public boolean AreYou(Segment segment) {
+        if(this == segment)
+        	return true;
+        return false;
     }
 
     /**

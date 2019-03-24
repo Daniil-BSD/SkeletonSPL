@@ -13,7 +13,8 @@ public class StationLogic implements CellLogic {
     /**
      * Default constructor
      */
-    public StationLogic() {
+    public StationLogic(Station parentStation) {
+    	this.parentStation = parentStation;
     }
 
     /**

@@ -8,8 +8,6 @@ import java.util.*;
  * which is implemented by this class.
  */
 public class TunnelEntrance extends Segment {
-
-	
 	
     /**
      * Default constructor
@@ -58,7 +56,7 @@ public class TunnelEntrance extends Segment {
     			LevelContainer.ConstructFrom(this);
     		}
     		if(LevelContainer.IsThisSelected(this)) {
-        		LevelContainer.selected = null;
+        		//LevelContainer.selected = null;
         		
         	}
     		LevelContainer.SelectEntrance(this);
