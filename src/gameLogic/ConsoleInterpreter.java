@@ -103,6 +103,10 @@ public abstract class ConsoleInterpreter {
 					LevelInitializer.StatonDemoInitializer();
 					System.out.println("//Initializing Level for Station Demonstration");
 				}
+				if(command[1].equals("collision")) {
+					LevelInitializer.CollisionDemoInitializer();
+					System.out.println("//Initializing Level for Collision Demonstration");
+				}
 			}
 			if(command[0].equals("quit")) {
 				Main.run = false;

@@ -24,4 +24,33 @@ class Staraight extends Segment {
 		end0 = path10.GetEndLogic();
 		end1 = path01.GetEndLogic();
 	}
+
+	// Method purely for skeleton
+	/**
+	 * 
+	 * 
+	 * this method returns a cell where a locomotive should be placed for
+	 * demonstraton
+	 */
+	public Cell GET_DEMO_CELL(int index) {
+		index %= 2;
+		if (index == 1)
+			return cells[3];
+		return cells[6];
+	}
+	
+	// Method purely for skeleton
+	/**
+	 * 
+	 * 
+	 * this method returns a cell where a locomotive should be placed for
+	 * demonstraton
+	 */
+	public Path GET_DEMO_PATHL(int index) {
+		index %= 2;
+		if (index == 1)
+			return path01;
+		return path10;
+	}
+
 }

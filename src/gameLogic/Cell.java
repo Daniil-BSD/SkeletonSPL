@@ -12,7 +12,11 @@ class Cell {
      */
     private Boolean occupied;
 
-    /**
+	public void setOccupied(Boolean occupied) {
+		this.occupied = occupied;
+	}
+
+	/**
      * This attribute stores the logic which decides the next move for the car.
      */
     private CellLogic logic;
