@@ -29,7 +29,7 @@ public abstract class ConsoleInterpreter {
 					}
 					else if(command[1].equals("straight")) {
 						System.out.println("Straight Added");
-						newSegment = new Staraight(command[2]);
+						newSegment = new Straight(command[2]);
 					}
 					if(newSegment != null) {
 						LevelContainer.addSegment(newSegment);
@@ -108,6 +108,10 @@ public abstract class ConsoleInterpreter {
 				if(command[1].equals("collision")) {
 					LevelInitializer.CollisionDemoInitializer();
 					System.out.println("//Initializing Level for Collision Demonstration");
+				}
+				if(command[1].equals("tunnel")) {
+					LevelInitializer.TunnelDemoInitializer();
+					System.out.println("//Initializing Level for Tunnel Construction Demonstration");
 				}
 			}
 			if(command[0].equals("quit")) {

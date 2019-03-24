@@ -73,7 +73,8 @@ class Level {
 		System.out.println(
 				">IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2): checks if the tunnel is possible between the entrances by looking into the level’s tunnel collection.");
 		for (Tunnel tunnel : tunnels) {
-			if (te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)) {
+			if (te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)
+					|| te1.equals(tunnel.entrance1) && te2.equals(tunnel.entrance0))  {
 				System.out.println(
 						"<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
 				return true;

@@ -28,7 +28,7 @@ class StationLogic implements CellLogic {
      */
     @Override
     public boolean LogicRequest(Car car) {
-    	System.out.print("\t>LogicRequest(Car car): Performs actions assigned to this cell.\n");
+    	System.out.print("\t>LogicRequest(Car car): allows people to disembark the train\n");
     	if(car.IsLocomotive()) {
     		Colors colors[] = parentStation.GetColors();
     		if(car.CurrentlyAtTheStation(colors)) {
