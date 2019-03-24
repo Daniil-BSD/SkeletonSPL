@@ -6,7 +6,8 @@ package gameLogic;
 class PassengerCar extends Car {
 
 	/**
-	 * Default constructor
+	 * Constructor that assigns the car's current cell, and the color which will be
+	 * compared with the stations' colors to drop passengers.
 	 */
 	public PassengerCar(Cell cell, Colors color) {
 		super(cell);
@@ -20,28 +21,44 @@ class PassengerCar extends Car {
 	 */
 	private Colors color;
 
+	/**
+	 * This attribute tells us if the train is empty or full of passengers.
+	 */
 	private boolean full;
 
+	/**
+	 * This method is a getter for the attribute full.
+	 */
 	public boolean isFull() {
 		return full;
 	}
 
+	/**
+	 * This method compares the colors of the station with the train's colors if the
+	 * train is full. If the color matches, the full attribute is set to null and
+	 * true is returned. If the color doesn't match the color of the station, false
+	 * is returned. if the car is empty, the superclass' similarly method is called
+	 * which switches on to the next attached car.
+	 */
 	@Override
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
-		System.out.print("CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
+		System.out.print(
+				"CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
 		if (full) {
 			for (Colors c : Colors.values()) {
 				if (c.toString().equals(this.color.toString())) {
-					System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+					System.out.print(
+							"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
 					full = false;
 					return true;
 				}
 			}
-			System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+			System.out.print(
+					"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
 			return false;
-		}
-		else {
-			System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+		} else {
+			System.out.print(
+					"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
 			return super.CurrentlyAtTheStation(colors);
 		}
 	}

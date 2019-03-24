@@ -23,7 +23,6 @@ class PathEnd implements CellLogic {
     
 
     /**
-     * @param int endID
      * This method returns true if the cell referred to by its ID is free, 
      * that is, if it does not know what cell is next.
      */
@@ -32,7 +31,6 @@ class PathEnd implements CellLogic {
     }
 
     /**
-     * @param car
      *  This method uses the logic of cell connections to connect to 
      *  link two cells in different segments.
      */

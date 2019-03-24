@@ -2,10 +2,17 @@ package gameLogic;
 
 import java.awt.Color;
 
+/**
+ * This class initializes the level for the demonstration purposes.
+ */
 public abstract class LevelInitializer {
 
+	/**
+	 * These method is called for the sake of demonstrating the code functionality.
+	 * It is called by the ConsoleInterpreter. Initializes the fork on the level.
+	 */
 	public static void ForkDemoInitializer() {
-		
+
 		LevelContainer.Load(new Level());
 		Fork fork = new Fork("fork");
 		LevelContainer.addSegment(fork);
@@ -14,13 +21,20 @@ public abstract class LevelInitializer {
 		fork.GET_DEMO_CELL(2).SetLogic(new LoggerCell("car goes east"));
 	}
 
+	/**
+	 * This method initializes the level.
+	 */
 	public static void LevelConstructionDemoInitializer() {
 		LevelContainer.Load(new Level());
 	}
-	
+
+	/**
+	 * This method creates a station adds it to the level while also creating a
+	 * train with a passenger car attached to it.
+	 */
 	public static void StatonDemoInitializer() {
 		LevelContainer.Load(new Level());
-		Station station = new Station("station", new Colors[] {Colors.Blue});
+		Station station = new Station("station", new Colors[] { Colors.Blue });
 		LevelContainer.addSegment(station);
 		PassengerCar passengerCar = new PassengerCar(station.GET_DEMO_CELL(0), Colors.Blue);
 		Locomotive locomotive = new Locomotive(station.GET_DEMO_CELL(1));
@@ -29,7 +43,11 @@ public abstract class LevelInitializer {
 		locomotive.SetPath(station.path01);
 		LevelContainer.addLocomotive(locomotive);
 	}
-	
+
+	/**
+	 * This method imitates the collision of two trains by creating them and putting
+	 * them on the same path.
+	 */
 	public static void CollisionDemoInitializer() {
 		LevelContainer.Load(new Level());
 		Straight straight = new Straight("straight");
@@ -41,7 +59,10 @@ public abstract class LevelInitializer {
 		LevelContainer.addLocomotive(locomotive1);
 		LevelContainer.addLocomotive(locomotive2);
 	}
-	
+
+	/**
+	 * This method initializes a Tunnel with its entrances.
+	 */
 	public static void TunnelDemoInitializer() {
 		LevelContainer.Load(new Level());
 		TunnelEntrance entrance1 = new TunnelEntrance("e1");
@@ -54,14 +75,27 @@ public abstract class LevelInitializer {
 		LevelContainer.addTunnel(tunnel);
 	}
 }
-class LoggerCell implements CellLogic{
-	
+
+/**
+ * This class is needed to add a specific logic to the cell, which is, again,
+ * needed for the demonstration purposes.
+ */
+class LoggerCell implements CellLogic {
+
+	/**
+	 * This attribute stores the string value to check the output.
+	 */
 	public String output;
-	
+	/**
+	 * Copy constructor.
+	 */
 	public LoggerCell(String output) {
 		this.output = output;
-		
+
 	}
+	/**
+	 * This method prints the output value to the console.
+	 */
 
 	@Override
 	public boolean LogicRequest(Car car) {

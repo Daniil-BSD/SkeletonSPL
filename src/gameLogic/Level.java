@@ -36,7 +36,7 @@ class Level {
 	 * System clock is implemented by this method.
 	 */
 
-	protected String name;
+	
 
 	public void Tick() {
 		for (Locomotive locomotive : trains) {
@@ -63,11 +63,11 @@ class Level {
 	}
 
 	/**
-	 * @param TunnelEntrance te1
-	 * @param TunnelEntrance te2 This method is called by the level container and
-	 *                       returns true if the tunnel is possible between the
-	 *                       selected point and the entrance which was passed to
-	 *                       this method. Returns false otherwise.
+	 * 
+	 * This method is called by the level container and
+	 * returns true if the tunnel is possible between the
+	 * selected point and the entrance which was passed to
+	 * this method. Returns false otherwise.
 	 */
 	public boolean IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2) {
 		System.out.println(
@@ -83,7 +83,11 @@ class Level {
 		System.out.println("<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
 		return false;
 	}
-
+	/**
+	 * 
+	 * This method is called by the level container and
+	 * returns the tunnel between the entrances. Returns null otherwise.
+	 */
 	public Tunnel GetTunnelBetween(TunnelEntrance te1, TunnelEntrance te2) {
 
 		for (Tunnel tunnel : tunnels) {
@@ -96,16 +100,25 @@ class Level {
 	}
 
 	/**
-	 * @param Tunnel newTunnel This method adds a new tunnel to the level and it is
-	 *               called by a similarly named method of the LevelContainer class.
+	 * This method adds a new tunnel to the level and it is
+	 * called by a similarly named method of the LevelContainer class.
 	 */
 	public void addTunnel(Tunnel newTunnel) {
 		tunnels.add(newTunnel);
 	}
 
+	/**
+	 * This method adds a new segment to the level and it is
+	 * called by a similarly named method of the LevelContainer class.
+	 */
 	public void addSegment(Segment sgm) {
 		segments.add(sgm);
 	}
+	
+	/**
+	 * This method adds a new train locomotive to the level and it is
+	 * called by a similarly named method of the LevelContainer class.
+	 */
 
 	public void addLcomotive(Locomotive locomotive) {
 		trains.add(locomotive);

@@ -7,6 +7,17 @@ import java.util.*;
  * that go out of the fork depending on the player¡¦s choice.
  */
 class Fork extends Segment {
+	/**
+	 * Default constructor
+	 */
+
+	public Fork() {
+
+	}
+
+	/**
+	 * Constructor that creates the fork and the respective paths.
+	 */
 
 	public Fork(String id) {
 		super(id);
@@ -50,7 +61,8 @@ class Fork extends Segment {
 	}
 
 	/**
-	 * 
+	 * This attribute stores the selectorPath for the Fork to let the player select
+	 * the outgoing path.
 	 */
 	private SelectorPath selectorPath;
 
@@ -63,9 +75,8 @@ class Fork extends Segment {
 	 * This attribute stores another exit.
 	 */
 	private Path path02;
-	
-	
-	private  PathEnd  end2;
+
+	private PathEnd end2;
 
 	/**
 	 * This method returns true or false respectively if the cell out of the fork is

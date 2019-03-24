@@ -7,6 +7,12 @@ import java.util.*;
  * these colors, passengers embark or disembark.
  */
 class Station extends Segment {
+	
+	
+	
+	
+	public Station() {
+	}
 
 	public Station(String id, Colors[] colors) {
 		super(id);

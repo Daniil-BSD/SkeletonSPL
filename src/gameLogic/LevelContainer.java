@@ -11,22 +11,25 @@ import java.util.*;
 abstract class LevelContainer {
 
 	/**
-	 * 
+	 * This attribute stores the active level.
 	 */
 	private static Level level;
+
+	/**
+	 * This attribute is needed for the game's clock and the Tick() methods.
+	 */
 
 	private static volatile GameTick gameTick = null;
 
 	/**
-	 * 
+	 * This attribute stores the tunnel entrance highlighted by the player.
 	 */
 	private static TunnelEntrance selected;
 
 	/**
-	 * @param car This method gets the cars which are arrived at the final station.
-	 *            If the train is empty, the train waits at the Final Station. If
-	 *            the train is not empty, the game is lost and the level is
-	 *            restarted.
+	 * This method gets the cars which are arrived at the final station. If the
+	 * train is empty, the train waits at the Final Station. If the train is not
+	 * empty, the game is lost and the level is restarted.
 	 */
 	public static void FinalReport(Car car) {
 		System.out.print(
@@ -39,11 +42,8 @@ abstract class LevelContainer {
 	}
 
 	/**
-	 * @param string Sgm1ID
-	 * @param        int end1ID
-	 * @param string Sgm2ID
-	 * @param        int end2ID This method starts the process of joining two
-	 *               segments. It is called by the Controller.
+	 * This method starts the process of joining two segments. It is called by the
+	 * Controller.
 	 */
 	public static void Join(String Sgm1ID, int end1ID, String Sgm2ID, int end2ID) {
 		Segment segment1 = level.FindSegment(Sgm1ID);
@@ -63,6 +63,10 @@ abstract class LevelContainer {
 
 	}
 
+	/**
+	 * This method takes the string segment identifier and returns the respective
+	 * Segment. If the segment does not exist, returns null.
+	 */
 	public static Segment FindSegment(String sgmID) {
 		System.out.println("FindSegment(string id): Looks for a segment with the same id.");
 		Segment ret = level.FindSegment(sgmID);
@@ -71,8 +75,8 @@ abstract class LevelContainer {
 	}
 
 	/**
-	 * @return This method returns true if a tunnel entrance is selected to
-	 *         construct a tunnel between two points.
+	 * This method returns true if a tunnel entrance is selected to construct a
+	 * tunnel between two points.
 	 */
 	public static boolean IsEntranceSelected() {
 		System.out.println(">IsEntranceSelected(): Checks if another entrance is selected.");
@@ -81,7 +85,8 @@ abstract class LevelContainer {
 	}
 
 	/**
-	 * @param TunnelEntrance te
+	 * This method returns boolean value after checking if the tunnel is possible
+	 * from the given entrance.
 	 */
 	public static boolean IsTunnelPossibleFrom(TunnelEntrance te) {
 		System.out.println(
@@ -94,10 +99,10 @@ abstract class LevelContainer {
 	}
 
 	/**
-	 * @param TunnelEntrance te If the tunnel is possible between the two points,
-	 *                       this method clears the current tunnels of the two
-	 *                       entrances, creates a new tunnel and sets it for the te
-	 *                       and the selected entrance.
+	 * 
+	 * If the tunnel is possible between the two points, this method clears the
+	 * current tunnels of the two entrances, creates a new tunnel and sets it for
+	 * the te and the selected entrance.
 	 */
 	public static void ConstructFrom(TunnelEntrance te) {
 		System.out.println(">>ConstructFrom(TunnelEntrance te1): Construct a tunnel from the first entrance.\n");
@@ -110,57 +115,74 @@ abstract class LevelContainer {
 	}
 
 	/**
-	 * @param Tunnel newTunnel This method registers a new tunnel to the level.
+	 * This method registers a new tunnel to the level.
 	 */
 	public static void addTunnel(Tunnel newTunnel) {
 		level.addTunnel(newTunnel);
 	}
 
+	/**
+	 * This method registers a new segment to the level.
+	 */
 	public static void addSegment(Segment sgm) {
 		level.addSegment(sgm);
 	}
 
+	/**
+	 * This method registers a new locomotive to the level.
+	 */
 	public static void addLocomotive(Locomotive locomotive) {
 		level.addLcomotive(locomotive);
 	}
 
 	/**
-	 * @param TunnelEntrance te
-	 * @param TunnelEntrance selected This method is called by the above method to
-	 *                       check if the tunnel is possible between the two
-	 *                       entrances.
-	 * @return
+	 * This method is called by the above method to check if the tunnel is possible
+	 * between the two entrances.
 	 */
 	public static boolean IsTunnelPossibleBetween(TunnelEntrance te, TunnelEntrance selected) {
 		return level.IsTunnelPossibleBetween(te, selected);
 	}
 
+	/**
+	 * This method returns true if the player selected the same tunnel entrance
+	 * twice.
+	 */
 	public static boolean IsThisSelected(TunnelEntrance te) {
 		return te == selected;
 	}
 
+	/**
+	 * This method selects a tunnel entrance.
+	 */
 	public static void SelectEntrance(TunnelEntrance te) {
 		selected = te;
 
 	}
 
 	/**
-	 * @param car
+	 * This method is called when a train derailed, which leads to defeat on the
+	 * current level.
 	 */
 	public static void Derailed(Car car) {
+		System.out.print("Derailed(Locomotive locomotive): tells the level that the train derailed");
 		Defeat();
 	}
 
 	/**
-	 * @param car
+	 * This method is called when a train collided with another car, which, again,
+	 * leads to defeat.
 	 */
 	public static void Collided(Car car) {
 		System.out.print("Collided(Locomotive locomotive): tells the level that trains collided");
 		Defeat();
 	}
 
+	/**
+	 * This method and is called when the conditions for winning on the level have been
+	 * fulfilled on the current level.
+	 */
 	public static void Victory(String message) {
-		Victory();
+		Defeat();
 	}
 
 	public static void Victory() {
@@ -168,6 +190,9 @@ abstract class LevelContainer {
 		Stop();
 	}
 
+	/**
+	 * This method is called when the game was lost. It stops the game on the level.
+	 */
 	public static void Defeat(String message) {
 		Defeat();
 	}
@@ -176,12 +201,17 @@ abstract class LevelContainer {
 		System.out.print("Defeat(): Method called whenever game is lost.");
 		Stop();
 	}
+	/**
+	 * This method starts the game on the current level, while also starting the clock.
+	 */
 
 	public static void Start() {
 		gameTick = new GameTick(10);
 		gameTick.start();
 	}
-
+	/**
+	 * This method is loads the level to the level container.
+	 */
 	public static void Load(String name) {
 		// no current implementation
 	}

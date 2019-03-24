@@ -12,6 +12,12 @@ abstract class Car {
 	/**
 	 * Default constructor
 	 */
+	public Car() {
+	}
+
+	/**
+	 * Constructor that sets the starting cell for the car.
+	 */
 	public Car(Cell cell) {
 		this.cell = cell;
 	}
@@ -23,7 +29,7 @@ abstract class Car {
 
 	/**
 	 * A path is stored which is a sequence of cells to have an idea of the train or
-	 * its component¡¦s future position.
+	 * its component's future position.
 	 */
 	private Path path;
 
@@ -61,7 +67,7 @@ abstract class Car {
 	 * color. It will be bound to the system clock.
 	 */
 	public void Step() {
-			
+
 		System.out.print(">>Step():car move to next cell.\n");
 		permissionToLeave = cell.LogicRequest(this);
 		if (permissionToLeave) {
@@ -84,20 +90,23 @@ abstract class Car {
 		}
 
 	}
-	
+
+	/**
+	 * This method attaches a car to the car passed on as a parameter.
+	 */
 	public void attach(Car car) {
 		attachedCar = car;
 	}
 
 	/**
-	 * @param logic.path This method sets the path for the car.
+	 * This method sets the path for the car.
 	 */
 	public void SetPath(Path path) {
 		this.path = path;
 	}
 
 	/**
-	 * @param logic.nextCell This method sets the next cell for the car.
+	 * This method sets the next cell for the car.
 	 */
 	public void SetNextCell(Cell cell) {
 		this.nextCell = cell;
@@ -116,9 +125,9 @@ abstract class Car {
 	}
 
 	/**
-	 * @param colors[] When the locomotive is at the station, this method gets the
-	 *        colors of the train, checks if any of them match with the station¡¦s
-	 *        colors. If they do, it then drops the passengers.
+	 * When the locomotive is at the station, this method gets the colors of the
+	 * train, checks if any of them match with the station¡¦s colors. If they do, it
+	 * then drops the passengers.
 	 */
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
 		System.out.print(
@@ -128,8 +137,8 @@ abstract class Car {
 					"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 			return attachedCar.CurrentlyAtTheStation(colors);
 		}
-		System.out
-				.print("\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+		System.out.print(
+				"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
 		return false;
 	}
 

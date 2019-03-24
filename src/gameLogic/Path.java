@@ -12,7 +12,9 @@ class Path {
 	protected Cell[] cells;
 
 	/**
-	 * Default constructor
+	 * Constructor that sets the cells and assigns the PathStart and PathEnd logic
+	 * to the first and the last cells of the path respectively if the path is
+	 * appropriately long. Throws an exception if the path is too short.
 	 */
 	public Path(Cell[] cells) {
 		this.cells = cells;
@@ -24,14 +26,18 @@ class Path {
 		}
 	}
 
+	/**
+	 * Default constructor.
+	 */
 	protected Path() {
 	}
 
 	/**
-	 * @param cell This method gets the cell, and returns the cell which is next to
-	 *             it along the same path.
+	 * 
+	 * This method gets the cell, and returns the cell which is next to it along the
+	 * same path.
 	 */
-	
+
 	public Cell NextCell(Cell cell) {
 		System.out.print("\t>NextCell(Cell cell): Asks Path for the cell after the given one.\n");
 		int index = 0;
@@ -41,36 +47,43 @@ class Path {
 				break;
 		}
 
-		System.out.print("\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
-
+		System.out.print(
+				"\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
 
 		if (index < cells.length)
 			return cells[index];
 		return null;
 	}
 
+	/**
+	 * This method returns the first cell of the path.
+	 */
 	public Cell GetStart() {
 		return cells[0];
 	}
 
+	/**
+	 * This method returns the last cell of the path.
+	 */
 	public Cell GetEnd() {
 		return cells[this.cells.length - 1];
 	}
 
+	/**
+	 * This method returns the PathEnd logic of the last cell of the path.
+	 */
 	public PathEnd GetEndLogic() {
 		return (PathEnd) cells[this.cells.length - 1].GetLogic();
 	}
 
 	/**
-	 * @param      int length
-	 * @param Cell current This method gets the cell, which is occupied by a car and
-	 *             makes the amount of cells equal to length behind the car occupied
-	 *             as well.
+	 * This method gets the cell, which is occupied by a car and makes the amount of
+	 * cells equal to length behind the car occupied as well.
 	 */
 	public void UpdatePresence(int length, Cell current) {
 
-
-		System.out.println(">>UpdatePresence(int carLength, Cell frontOfTheCar): Changes status of the cells around the car.");
+		System.out.println(
+				">>UpdatePresence(int carLength, Cell frontOfTheCar): Changes status of the cells around the car.");
 		// TODO implement here
 		// finish this!!
 
@@ -89,7 +102,7 @@ class Path {
 				for (; i < length && index - i >= 0; i++) {
 					cells[index - i].setOccupied(true);
 				}
-				if(++i == length) {
+				if (++i == length) {
 					cells[index - i].setOccupied(false);
 				}
 			} else {
