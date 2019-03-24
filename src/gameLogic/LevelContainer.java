@@ -163,7 +163,7 @@ abstract class LevelContainer {
 	 * @param car
 	 */
 	public static void Collided(Car car) {
-		System.out.print(">>Collided(Locomotive locomotive): tells the level that trains collided");
+		System.out.println(">>Collided(Locomotive locomotive): tells the level that trains collided");
 		Defeat();
 	}
 
