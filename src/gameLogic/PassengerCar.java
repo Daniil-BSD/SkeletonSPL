@@ -3,7 +3,7 @@ package gameLogic;
 /**
  * This class is a car that carries passengers.
  */
-public class PassengerCar extends Car {
+class PassengerCar extends Car {
 
 	/**
 	 * Default constructor

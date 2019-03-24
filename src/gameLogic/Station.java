@@ -6,7 +6,7 @@ import java.util.*;
  * This class is responsible for the stations that have colorr. Depending on
  * these colors, passengers embark or disembark.
  */
-public class Station extends Segment {
+class Station extends Segment {
 
 	public Station(String id, Colors[] colors) {
 		super(id);

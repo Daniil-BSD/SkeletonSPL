@@ -8,7 +8,7 @@ import java.util.*;
  * internally by this class. The segments are joined and the tunnels are
  * constructed by it.
  */
-public abstract class LevelContainer {
+abstract class LevelContainer {
 
 	/**
 	 * 

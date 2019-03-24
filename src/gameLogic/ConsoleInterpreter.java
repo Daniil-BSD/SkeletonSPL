@@ -1,7 +1,8 @@
-package main;
+package gameLogic;
 
 import java.security.InvalidParameterException;
 import gameLogic.*;
+import main.Main;
 
 public abstract class ConsoleInterpreter {
 

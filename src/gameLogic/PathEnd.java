@@ -6,7 +6,7 @@ import java.util.*;
  * This class makes it so that upon reaching the end of the segment, 
  * the train always goes along another path from another segment. 
  */
-public class PathEnd implements CellLogic {
+class PathEnd implements CellLogic {
 
     /**
      * Default constructor

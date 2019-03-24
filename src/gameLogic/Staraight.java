@@ -2,7 +2,7 @@ package gameLogic;
 
 import java.util.LinkedList;
 
-public class Staraight extends Segment {
+class Staraight extends Segment {
 	public Staraight(String id) {
 		super(id);
 		cells = new Cell[9];

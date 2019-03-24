@@ -6,7 +6,7 @@ import java.util.*;
  * This class implements the logic of passengers embarking and
  *  disembarking depending on the colors of the train and the station. 
  */
-public class StationLogic implements CellLogic {
+class StationLogic implements CellLogic {
 	
 	private boolean finalReportFlag = false;
 

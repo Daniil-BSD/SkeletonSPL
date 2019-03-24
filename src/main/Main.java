@@ -3,6 +3,8 @@ package main;
 import java.io.*;
 import java.security.InvalidParameterException;
 
+import gameLogic.ConsoleInterpreter;
+
 /**
  * 
  */

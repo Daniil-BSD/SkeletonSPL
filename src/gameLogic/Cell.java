@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * This class is responsible for the basic spacial units of the level, cells. 
  */
-public class Cell {
+class Cell {
 
     /**
      * This attribute stores true if the cell is occupied by a car, false otherwise. 

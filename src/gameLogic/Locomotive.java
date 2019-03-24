@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class Locomotive extends Car {
+class Locomotive extends Car {
 
     /**
      * Default constructor
