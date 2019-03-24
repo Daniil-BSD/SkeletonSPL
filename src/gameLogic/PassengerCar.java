@@ -11,6 +11,7 @@ public class PassengerCar extends Car {
 	public PassengerCar(Cell cell, Colors color) {
 		super(cell);
 		this.color = color;
+		this.full = true;
 	}
 
 	/**
@@ -32,6 +33,7 @@ public class PassengerCar extends Car {
 			for (Colors c : Colors.values()) {
 				if (c.toString().equals(this.color.toString())) {
 					System.out.print("CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+					full = false;
 					return true;
 				}
 			}

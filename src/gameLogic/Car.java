@@ -37,7 +37,7 @@ public abstract class Car {
 	 * train is moved by a locomotive which is a car, so cars should be connected
 	 * with each other for this to work.
 	 */
-	protected Car attachedCar;
+	private Car attachedCar;
 
 	/**
 	 * This attribute is here because of the cell logic. This is needed for the
@@ -82,6 +82,10 @@ public abstract class Car {
 				LevelContainer.Collided(this);
 		}
 
+	}
+	
+	public void attach(Car car) {
+		attachedCar = car;
 	}
 
 	/**
@@ -134,10 +138,11 @@ public abstract class Car {
 	 */
 	public boolean IsEmpty() {
 		System.out.print("IsEmpty():Recursive function that checks if all passenger cars are empty\n");
-		attachedCar.IsEmpty();
+		if (attachedCar != null)
+		return attachedCar.IsEmpty();
 
 		System.out.print("IsEmpty():true if all cars behind are empty.	\n");
-		return true;
+		return false;
 	}
 
 }

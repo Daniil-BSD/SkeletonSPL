@@ -31,8 +31,11 @@ public abstract class LevelContainer {
 	public static void FinalReport(Car car) {
 		System.out.print(
 				"FinalReport(Car car): reports to the station that the train has let all possible passengers disembark at the final station.\n");
-
-		car.IsEmpty();
+		if (car.IsEmpty())
+			Victory();
+		else
+			Defeat();
+		Stop();
 	}
 
 	/**
@@ -63,7 +66,7 @@ public abstract class LevelContainer {
 
 	public static Segment FindSegment(String sgmID) {
 		System.out.println("FindSegment(string id): Looks for a segment with the same id.\n");
-		
+
 		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)\n");
 		return level.FindSegment(sgmID);
 	}
@@ -82,8 +85,9 @@ public abstract class LevelContainer {
 	 * @param TunnelEntrance te
 	 */
 	public static boolean IsTunnelPossibleFrom(TunnelEntrance te) {
-		System.out.println(">IsTunnelPossibleFrom(TunnelEntrance te1): checks if the tunnel is possible from the given entrance.\n");
-		
+		System.out.println(
+				">IsTunnelPossibleFrom(TunnelEntrance te1): checks if the tunnel is possible from the given entrance.\n");
+
 		System.out.println(">IsTunnelPossibleFrom(TunnelEntrance te1): Returns a boolean value.\n");
 		return level.IsTunnelPossibleBetween(te, selected);
 	}
@@ -114,7 +118,7 @@ public abstract class LevelContainer {
 	public static void addSegment(Segment sgm) {
 		level.addSegment(sgm);
 	}
-	
+
 	public static void addLocomotive(Locomotive locomotive) {
 		level.addLcomotive(locomotive);
 	}
@@ -155,7 +159,7 @@ public abstract class LevelContainer {
 	 */
 	public static void Collided(Car car) {
 		System.out.print("Collided(Locomotive locomotive): tells the level that trains collided");
-		// TODO implement here
+		Defeat();
 	}
 
 	public static void Victory(String message) {
@@ -164,6 +168,7 @@ public abstract class LevelContainer {
 
 	public static void Victory() {
 		System.out.print("Victory(): Method called whenever game is completed.\n");
+		Stop();
 	}
 
 	public static void Defeat(String message) {
@@ -172,16 +177,7 @@ public abstract class LevelContainer {
 
 	public static void Defeat() {
 		System.out.print("Defeat(): Method called whenever game is lost.");
-		if (gameTick != null) {
-			gameTick.run = false;
-			try {
-				gameTick.join();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			gameTick = null;
-		}
+		Stop();
 	}
 
 	public static void Start() {
@@ -198,7 +194,16 @@ public abstract class LevelContainer {
 	}
 
 	public static void Stop() {
-		Defeat();
+		if (gameTick != null) {
+			gameTick.run = false;
+			try {
+				gameTick.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			gameTick = null;
+		}
 	}
 
 	public static void Tick() {

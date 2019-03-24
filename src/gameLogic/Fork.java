@@ -37,6 +37,8 @@ public class Fork extends Segment {
 		path02 = new Path(temp2.toArray(new Cell[temp2.size()]));
 		selectorPath.GetEndLogicByIndex(0).Connect(path01.GetStart());
 		selectorPath.GetEndLogicByIndex(1).Connect(path02.GetStart());
+		end1 = path01.GetEndLogic();
+		end2 = path02.GetEndLogic();
 		path20 = path02;
 		path10 = path01;
 		for (; i < 17; i++) {
@@ -61,6 +63,9 @@ public class Fork extends Segment {
 	 * This attribute stores another exit.
 	 */
 	private Path path02;
+	
+	
+	private  PathEnd  end2;
 
 	/**
 	 * This method returns true or false respectively if the cell out of the fork is
