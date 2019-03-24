@@ -153,6 +153,7 @@ public abstract class LevelContainer {
 	 * @param car
 	 */
 	public static void Derailed(Car car) {
+		System.out.println(">>Derailed(): Called when Train goes off track.");
 		Defeat();
 	}
 
