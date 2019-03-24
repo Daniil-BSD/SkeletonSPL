@@ -6,10 +6,12 @@ import main.Main;
 
 public abstract class ConsoleInterpreter {
 
+
 	public static void ConsoleLine(String input) throws Exception {
 		System.out.println(">>ConsoleLine(string input): interprets the user string input");
 
-	
+
+		
 
 		String[] command = input.split(" ");
 		if(command.length > 0 ) {

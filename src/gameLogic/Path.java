@@ -40,7 +40,10 @@ class Path {
 			if (localCell == cell)
 				break;
 		}
+
 		System.out.print("\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
+
+
 		if (index < cells.length)
 			return cells[index];
 		return null;
@@ -65,6 +68,7 @@ class Path {
 	 *             as well.
 	 */
 	public void UpdatePresence(int length, Cell current) {
+
 
 		System.out.println(">>UpdatePresence(int carLength, Cell frontOfTheCar): Changes status of the cells around the car.");
 		// TODO implement here

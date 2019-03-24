@@ -65,11 +65,11 @@ abstract class LevelContainer {
 
 	public static Segment FindSegment(String sgmID) {
 
-		System.out.println("\t>FindSegment(string id): Looks for a segment with the same id.");
+
+		System.out.println("FindSegment(string id): Looks for a segment with the same id.");
 		Segment ret = level.FindSegment(sgmID);
-		System.out.println("\tFindSegment(string id): reference to the first entrance(null if does not exist.)");
+		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)");
 		return ret;
-		
 	}
 
 	/**
