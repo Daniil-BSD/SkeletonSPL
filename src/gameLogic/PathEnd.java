@@ -39,7 +39,9 @@ class PathEnd implements CellLogic {
     	return true;
     }
 
-    
+    /**
+     *  This method links the end of the path to another cell of the next path.
+     */
     public void Connect(Cell end) {
     	nextCell = end;
     	

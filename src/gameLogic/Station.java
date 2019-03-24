@@ -3,16 +3,21 @@ package gameLogic;
 import java.util.*;
 
 /**
- * This class is responsible for the stations that have colorr. Depending on
+ * This class is responsible for the stations that have color. Depending on
  * these colors, passengers embark or disembark.
  */
 class Station extends Segment {
-	
-	
-	
-	
+
+	/**
+	 * Default constructor
+	 */
 	public Station() {
 	}
+
+	/**
+	 * Constructor that assigns the string id and the given colors to the newly
+	 * created Station while also creating paths and needed cells.
+	 */
 
 	public Station(String id, Colors[] colors) {
 		super(id);
@@ -42,14 +47,16 @@ class Station extends Segment {
 	}
 
 	/**
-	 * 
+	 * This attribute stores the colors of the station.
 	 */
 	private Colors colors[];
-
+	/**
+	 * This method returns false if the station is not final.
+	 */
 	public boolean IsFinal() {
-		return true; // only in the skeleton
-		
-		//return false; //proper return
+		return false; // only in the skeleton
+
+		// return false; //proper return
 	}
 
 	/**
@@ -58,9 +65,9 @@ class Station extends Segment {
 	 * @return
 	 */
 	public Colors[] GetColors() {
-		System.out.print("\t>GetColors(): Requests parent station for colors.\n");
+		System.out.println("\t>GetColors(): Requests parent station for colors.");
 		// TODO implement here
-		System.out.print("\t<GetColors(): Set of colors accepted by the station.\n");
+		System.out.println("\t<GetColors(): Set of colors accepted by the station.");
 		return colors;
 	}
 
@@ -77,7 +84,7 @@ class Station extends Segment {
 			return cells[11];
 		return cells[9];
 	}
-	
+
 	// Method purely for skeleton
 	/**
 	 * 

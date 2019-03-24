@@ -42,23 +42,24 @@ class PassengerCar extends Car {
 	 */
 	@Override
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
-		System.out.print(
-				"CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
+		System.out.println(
+				"\t>CurrentlyAtTheStation(Color[] colors): Tells the car that the passengers in the cars of these colors are allowed to leave the car.");
 		if (full) {
 			for (Colors c : Colors.values()) {
 				if (c.toString().equals(this.color.toString())) {
-					System.out.print(
-							"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+
+					System.out.println(
+							"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.");
 					full = false;
 					return true;
 				}
 			}
-			System.out.print(
-					"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+			System.out.println(
+					"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.");
 			return false;
 		} else {
-			System.out.print(
-					"CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.\n");
+			System.out.println(
+					"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.");
 			return super.CurrentlyAtTheStation(colors);
 		}
 	}

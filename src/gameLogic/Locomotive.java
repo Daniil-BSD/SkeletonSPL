@@ -22,9 +22,9 @@ class Locomotive extends Car {
 	 */
 	@Override
 	public boolean IsLocomotive() {
-		System.out.print("\t>IsLocomotive(): check if the car is a locomotive.\n");
-
-		System.out.print("\t<IsLocomotive(): true if it is a locomotive. \n");
+		System.out.println("\t>IsLocomotive(): check if the car is a locomotive.");
+		
+		System.out.println("\t<IsLocomotive(): true if it is a locomotive.");
 		return true;
 	}
 

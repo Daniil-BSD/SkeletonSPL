@@ -27,6 +27,10 @@ abstract class LevelContainer {
 	private static TunnelEntrance selected;
 
 	/**
+	 * This attribute stores the tunnel entrance highlighted by the player.
+	 */
+	private static Segment selSegment;
+	/**
 	 * This method gets the cars which are arrived at the final station. If the
 	 * train is empty, the train waits at the Final Station. If the train is not
 	 * empty, the game is lost and the level is restarted.
@@ -158,7 +162,13 @@ abstract class LevelContainer {
 		selected = te;
 
 	}
+	/**
+	 * This method selects a segment.
+	 */
+	public static void SelectSegment(Segment se) {
+		selSegment = se;
 
+	}
 	/**
 	 * This method is called when a train derailed, which leads to defeat on the
 	 * current level.

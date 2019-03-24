@@ -86,6 +86,7 @@ class LoggerCell implements CellLogic {
 	 * This attribute stores the string value to check the output.
 	 */
 	public String output;
+
 	/**
 	 * Copy constructor.
 	 */
@@ -93,6 +94,7 @@ class LoggerCell implements CellLogic {
 		this.output = output;
 
 	}
+
 	/**
 	 * This method prints the output value to the console.
 	 */

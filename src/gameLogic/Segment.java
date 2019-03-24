@@ -21,9 +21,17 @@ abstract class Segment {
 		this.id = "12341";
 	}
 
+	/**
+	 * This constructor sets the given id to the segment.
+	 */
+
 	public Segment(String id) {
 		this.id = id;
 	}
+
+	/**
+	 * This attribute stores the cell of the segment.
+	 */
 
 	protected Cell cells[];
 
@@ -48,31 +56,35 @@ abstract class Segment {
 	protected Path path01;
 
 	/**
-	 * 
+	 * This attribute is needed to find a needed segment in the level by its string
+	 * identifier. It is needed in order to build the level by connecting segments.
 	 */
+
 	protected final String id;
 
 	/**
-	 * @param segment This attribute is needed to find a needed segment in the level
-	 *                by its string identifier. It is needed in order to build the
-	 *                level by connecting segments.
+	 * This method compares the given string id with the segments string id and
+	 * returns true if they match. False otherwise.
+	 * 
 	 */
 	public boolean AreYou(String segmentID) {
+		System.out.println("\t>GetID(): Getter for Id parameter.");
+		System.out.println("\t<GetID(): ID of the segment as a string");
 		return id.equals(segmentID);
 	}
 
 	/**
-	 * @param segment This attribute is needed to find a needed segment in the level
-	 *                by its reference. It is needed in order to build the level by
-	 *                connecting segments.
+	 * This method compares the given segment with the current segment and returns
+	 * true if they match. False otherwise.
+	 * 
 	 */
 	public boolean AreYou(Segment segment) {
 		return this == segment;
 	}
 
 	/**
-	 * @param cell This method returns a cell that is an edge of the segment if this
-	 *             cell is free.
+	 * This method returns a cell that is an edge of the segment if this cell is
+	 * free.
 	 */
 	public Cell GetFreeEnd(int endID) {
 		if (!IsEndFree(endID))
@@ -84,6 +96,12 @@ abstract class Segment {
 		return null;
 	}
 
+	/**
+	 * This method returns true if the edge of the segment that is identified by the
+	 * integer parameter is free.
+	 * 
+	 */
+
 	public boolean IsEndFree(int endID) {
 		if (endID == 0)
 			return !end0.HasConnection();
@@ -92,12 +110,13 @@ abstract class Segment {
 		return false;
 	}
 
-	// the one below has an error, but I do not remember how it has to be
 	/**
-	 * @param cell This method connects the segments by its ends, one of which is
-	 *             passed on as a parameter to this method.
+	 *
+	 * This method connects the segments by its ends, one of which is passed on as a
+	 * parameter to this method.
 	 */
 	public void ConnectTo(int endID, Cell end) {
+		System.out.println(">>ConnectTo(Cell pathStart, int endID): assignes cell to the specified PathEnd.");
 		if (!IsEndFree(endID))
 			return;
 		if (endID == 0)
@@ -111,10 +130,15 @@ abstract class Segment {
 	 * to construct a tunnel, or to control a switch at the chosen fork.
 	 */
 	public void Select() {
-		// TODO implement here
+		LevelContainer.SelectSegment(this);
 	}
 
+	/**
+	 * This method gets the path that ends with the cell identified by the given integer id.
+	 */
 	public Path GetPathEndingWith(int endID) {
+		System.out.println("\t>GetPathEndingWith(int endid): getter for a path based on the exit “endid”.");
+		System.out.println("\t<GetPathEndingWith(int endid): path that ends with indecated end.");
 
 		if (endID == 0)
 			return path01;

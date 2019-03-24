@@ -34,24 +34,26 @@ class TunnelEntrance extends Segment {
 	 */
 	public void FullClear() {
 		System.out.println(
-				">>FullClear(): Clears the tunnels for both entrances if the tunnel was set previously. This is checked two times. For the entrance te1 and for the entrance te2.\n");
+				">>FullClear(): Clears the tunnels for both entrances if the tunnel was set previously. This is checked two times. For the entrance te1 and for the entrance te2.");
 		if (tunnel != null)
 			tunnel.GetTheOtherEnd(this).Clear();
 		Clear();
 	}
 
 	/**
-	 * @param Tunnel newTunnel This method sets the tunnel for the current Tunnel
-	 *               Entrance.
+	 * This method sets the tunnel for the current Tunnel Entrance.
 	 */
 	public void SetTunnel(Tunnel newTunnel) {
 		System.out.println(">>SetTunnel(Tunnel newTunnel): Sets the new tunnel for one of the entrances.");
 		this.tunnel = newTunnel;
 	}
 
+	/**
+	 * This method selects the current entrance.
+	 */
+
 	public void Select() {
-		System.out
-				.println(">>Select(TunnelEntrance te): Selects the entrance referenced by the FindSegment() method.\n");
+		System.out.println(">>Select(TunnelEntrance te): Selects the entrance referenced by the FindSegment() method.");
 		if (LevelContainer.IsEntranceSelected()) {
 			if (LevelContainer.IsTunnelPossibleFrom(this)) {
 				LevelContainer.ConstructFrom(this);

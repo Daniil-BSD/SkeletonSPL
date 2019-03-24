@@ -8,23 +8,28 @@ import java.util.*;
  */
 class StationLogic implements CellLogic {
 	
+	/**
+	 * This attribute stores the boolean flag to identify the FinalStation.
+	 */
 	private boolean finalReportFlag = false;
 
+	
+	 /**
+     * This attribute stores the station to which the logic belongs.
+     */
+    private Station parentStation;
+
     /**
-     * Default constructor
+     * This constructor assigns the given station as the parent station.
      */
     public StationLogic(Station parentStation) {
     	this.parentStation = parentStation;
     }
 
-    /**
-     * 
-     */
-    private Station parentStation;
-
+   
 
     /**
-     * @param car
+     * This method executes the corresponding logic.
      */
     @Override
     public boolean LogicRequest(Car car) {

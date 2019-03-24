@@ -8,7 +8,7 @@ import java.util.*;
 class PathStart implements CellLogic {
 
     /**
-     * Default constructor
+     * Copy constructor
      */
     public PathStart(Path path) {
     	this.path = path;
@@ -22,7 +22,7 @@ class PathStart implements CellLogic {
 
 
     /**
-     * @param car
+     * This method executes the logic of the first cell of the path.
      */
     public boolean LogicRequest(Car car) {
         System.out.println("path set");

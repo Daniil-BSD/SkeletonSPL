@@ -2,7 +2,16 @@ package gameLogic;
 
 import java.util.LinkedList;
 
+/**
+ * This class realizes the segment with straight paths i.e, without turns.
+ */
+
 class Straight extends Segment {
+	
+	 /**
+     * Constructor that accepts a string id.
+     */
+
 	public Straight(String id) {
 		super(id);
 		cells = new Cell[9];

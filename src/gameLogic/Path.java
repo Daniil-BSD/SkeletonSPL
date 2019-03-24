@@ -39,7 +39,7 @@ class Path {
 	 */
 
 	public Cell NextCell(Cell cell) {
-		System.out.print("\t>NextCell(Cell cell): Asks Path for the cell after the given one.\n");
+		System.out.println("\t>NextCell(Cell cell): Asks Path for the cell after the given one.");
 		int index = 0;
 		for (Cell localCell : cells) {
 			index++;
@@ -47,8 +47,9 @@ class Path {
 				break;
 		}
 
-		System.out.print(
-				"\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
+		System.out.println("\t<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)");
+
+
 
 		if (index < cells.length)
 			return cells[index];

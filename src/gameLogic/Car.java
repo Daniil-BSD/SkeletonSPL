@@ -67,8 +67,7 @@ abstract class Car {
 	 * color. It will be bound to the system clock.
 	 */
 	public void Step() {
-
-		System.out.print(">>Step():car move to next cell.\n");
+		System.out.println(">>Step():car move to next cell.");
 		permissionToLeave = cell.LogicRequest(this);
 		if (permissionToLeave) {
 			if (nextCell == null && path != null)
@@ -117,9 +116,9 @@ abstract class Car {
 	 * if not.
 	 */
 	public boolean IsLocomotive() {
-		System.out.print(">IsLocomotive(): check if the car is a locomotive.\n");
+		System.out.println(">IsLocomotive(): check if the car is a locomotive.");
 
-		System.out.print("<IsLocomotive(): true if it is a locomotive. \n");
+		System.out.println("<IsLocomotive(): true if it is a locomotive.");
 		return false;
 
 	}
@@ -130,15 +129,12 @@ abstract class Car {
 	 * then drops the passengers.
 	 */
 	public boolean CurrentlyAtTheStation(Colors[] colors) {
-		System.out.print(
-				"\t>CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.\n");
+		System.out.println("\t>CurrentlyAtTheStation(Color[] colors): Sends colors of the station to the car. Tells the car that the passengers in the cars of these colors are allowed to leave the car.");
 		if (attachedCar != null) {
-			System.out.print(
-					"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+			System.out.println("\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.");
 			return attachedCar.CurrentlyAtTheStation(colors);
 		}
-		System.out.print(
-				"\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not. \n");
+		System.out.println("\t<CurrentlyAtTheStation(Color[] colors): True if people are leaving the train, false if not.");
 		return false;
 	}
 
@@ -147,12 +143,12 @@ abstract class Car {
 	 * respectively.
 	 */
 	public boolean IsEmpty() {
-		System.out.print(">IsEmpty():Recursive function that checks if all passenger cars are empty\n");
+		System.out.println("\t>IsEmpty():Recursive function that checks if all passenger cars are empty");
 		if (attachedCar != null) {
-			System.out.print("<IsEmpty():true if all cars behind are empty.	\n");
+			System.out.println("\t<IsEmpty():true if all cars behind are empty.");
 			return attachedCar.IsEmpty();
 		}
-		System.out.print("<IsEmpty():true if all cars behind are empty.	\n");
+		System.out.println("\t<IsEmpty():true if all cars behind are empty.");
 		return false;
 	}
 
