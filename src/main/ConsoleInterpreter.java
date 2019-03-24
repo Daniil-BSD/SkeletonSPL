@@ -6,7 +6,7 @@ import gameLogic.*;
 public abstract class ConsoleInterpreter {
 
 	public static void ConsoleLine(String input) throws Exception {
-		System.out.println("ConsoleLine(string input): interprets the user string input");
+		System.out.println(">>ConsoleLine(string input): interprets the user string input");
 		Segment newSegment = null;
 		Segment presentSegment = null;
 

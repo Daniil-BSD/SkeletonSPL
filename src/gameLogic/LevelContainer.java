@@ -30,7 +30,7 @@ public abstract class LevelContainer {
 	 */
 	public static void FinalReport(Car car) {
 		System.out.print(
-				"FinalReport(Car car): reports to the station that the train has let all possible passengers disembark at the final station.\n");
+				">>FinalReport(Car car): reports to the station that the train has let all possible passengers disembark at the final station.\n");
 		if (car.IsEmpty())
 			Victory();
 		else
@@ -65,9 +65,9 @@ public abstract class LevelContainer {
 	}
 
 	public static Segment FindSegment(String sgmID) {
-		System.out.println("FindSegment(string id): Looks for a segment with the same id.\n");
+		System.out.println(">FindSegment(string id): Looks for a segment with the same id.\n");
 
-		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)\n");
+		System.out.println("<FindSegment(string id): reference to the first entrance(null if does not exist.)\n");
 		return level.FindSegment(sgmID);
 	}
 
@@ -160,7 +160,7 @@ public abstract class LevelContainer {
 	 * @param car
 	 */
 	public static void Collided(Car car) {
-		System.out.print("Collided(Locomotive locomotive): tells the level that trains collided");
+		System.out.print(">>Collided(Locomotive locomotive): tells the level that trains collided");
 		Defeat();
 	}
 
@@ -169,7 +169,7 @@ public abstract class LevelContainer {
 	}
 
 	public static void Victory() {
-		System.out.print("Victory(): Method called whenever game is completed.\n");
+		System.out.print(">>Victory(): Method called whenever game is completed.\n");
 		Stop();
 	}
 
@@ -178,7 +178,7 @@ public abstract class LevelContainer {
 	}
 
 	public static void Defeat() {
-		System.out.print("Defeat(): Method called whenever game is lost.");
+		System.out.print(">>Defeat(): Method called whenever game is lost.");
 		Stop();
 	}
 
@@ -209,7 +209,7 @@ public abstract class LevelContainer {
 	}
 
 	public static void Tick() {
-		System.out.println("Tick");
+
 		level.Tick();
 	}
 }

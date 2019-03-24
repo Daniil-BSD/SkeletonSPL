@@ -5,6 +5,7 @@ import java.awt.Color;
 public abstract class LevelInitializer {
 
 	public static void ForkDemoInitializer() {
+		
 		LevelContainer.Load(new Level());
 		Fork fork = new Fork("fork");
 		LevelContainer.addSegment(fork);

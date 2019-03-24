@@ -31,13 +31,13 @@ public class Path {
 	 *             it along the same path.
 	 */
 	public Cell NextCell(Cell cell) {
-		System.out.print("NextCell(Cell cell): Asks Path for the cell after the given one.\n");
+		System.out.print(">NextCell(Cell cell): Asks Path for the cell after the given one.\n");
 		int index = 0;
 		for (Cell localCell : cells) {
 			index++;
 			if(localCell == cell) break;
 		}
-		System.out.print("NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
+		System.out.print("<NextCell(Cell cell): Passes the next cell.  (null if the passed cell was the last one in the path)\n");
 		if (index < cells.length)return cells[index];
 		return null;
 	}

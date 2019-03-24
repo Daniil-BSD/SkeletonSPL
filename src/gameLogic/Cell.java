@@ -27,7 +27,16 @@ public class Cell {
     
     
     public boolean LogicRequest(Car car) {
-    	if (logic != null) return logic.LogicRequest(car);
+    	System.out.println(">LogicRequest(Car car): Decides if the train can leave the current cell and advance to the next cell along the path. ");
+    	if (logic != null) {
+    		System.out.print(">LogicRequest(Car car): Performs actions assigned to this cell.\n");
+    		System.out.println("//car gets next cell.");
+        	System.out.print("<LogicRequest(Car car): Permission to leave the station.\n");
+    		System.out.println("<LogicRequest(Car car): Permission to leave the station.");
+        	return logic.LogicRequest(car);
+    	}
+
+		System.out.println("<LogicRequest(Car car): Permission to leave the station.");
     	return true;
     }
     
@@ -44,9 +53,9 @@ public class Cell {
      * This method returns the value depending on the occupied attribute.
      */
     public boolean IsOccupied() {
-    	System.out.print("IsOccupied(): Check if this cell is occupied\n");
+    	System.out.print(">IsOccupied(): Check if this cell is occupied\n");
     	
-    	System.out.print("IsOccupied(): Returns false if cell is not occupied\n");
+    	System.out.print("<IsOccupied(): Returns false if cell is not occupied\n");
     	return occupied;
     }
 
