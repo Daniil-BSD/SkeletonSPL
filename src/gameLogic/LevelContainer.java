@@ -49,26 +49,25 @@ abstract class LevelContainer {
 		Segment segment1 = level.FindSegment(Sgm1ID);
 		Segment segment2 = level.FindSegment(Sgm2ID);
 		if (segment1 != null && segment2 != null) {
-
 			if (segment1.IsEndFree(end1ID) && segment2.IsEndFree(end2ID)) {
-				segment1.ConnectTo(segment2.GetFreeEnd(end2ID));
-				segment2.ConnectTo(segment1.GetFreeEnd(end1ID));
-
+				Cell end1 = segment1.GetFreeEnd(end1ID);
+				Cell end2 = segment2.GetFreeEnd(end2ID);
+				segment1.ConnectTo(end1ID, end2);
+				segment2.ConnectTo(end2ID, end1);
+			} else {
+				System.out.println("Cannot Connect!");
 			}
-			System.out.println("Already connected!");
-		}
-		if (segment1 == null || segment2 == null) {
-			System.out.println("Missing Segments!");
-
+		}else{
+			System.out.println("No such segments (one or both are missing)!");
 		}
 
 	}
 
 	public static Segment FindSegment(String sgmID) {
-		System.out.println("FindSegment(string id): Looks for a segment with the same id.\n");
-
-		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)\n");
-		return level.FindSegment(sgmID);
+		System.out.println("FindSegment(string id): Looks for a segment with the same id.");
+		Segment ret = level.FindSegment(sgmID);
+		System.out.println("FindSegment(string id): reference to the first entrance(null if does not exist.)");
+		return ret;
 	}
 
 	/**

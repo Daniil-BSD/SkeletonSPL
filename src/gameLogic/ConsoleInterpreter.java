@@ -8,8 +8,6 @@ public abstract class ConsoleInterpreter {
 
 	public static void ConsoleLine(String input) throws Exception {
 		System.out.println("ConsoleLine(string input): interprets the user string input");
-		Segment newSegment = null;
-		Segment presentSegment = null;
 
 	
 
@@ -17,9 +15,9 @@ public abstract class ConsoleInterpreter {
 		if(command.length > 0 ) {
 
 			if(command[0].equals("add") && command.length > 2) {
-				 presentSegment = LevelContainer.FindSegment(command[2]);
+				Segment newSegment = LevelContainer.FindSegment(command[2]);
 
-				if(presentSegment == null) {
+				if(newSegment == null) {
 					
 					if(command[1].equals("fork")) { 
 						newSegment = new Fork(command[2]);	
@@ -27,28 +25,25 @@ public abstract class ConsoleInterpreter {
 					else if(command[1].equals("station")) { 
 						//newSegment = new Station(command[2]);
 					}
-					else if(command[1].equals("Staraight")) {
+					else if(command[1].equals("straight")) {
+						System.out.println("Straight Added");
 						newSegment = new Staraight(command[2]);
 					}
-
+					if(newSegment != null) {
+						LevelContainer.addSegment(newSegment);
+					}
 				}
 			}
 			if(command[0].equals("select") && command.length > 1) {
-				presentSegment = LevelContainer.FindSegment(command[1]);
+				Segment presentSegment = LevelContainer.FindSegment(command[1]);
 				if(presentSegment!=null) {
 					presentSegment.Select();
-					
-
-					if(newSegment != null) {
-					LevelContainer.addSegment(newSegment);
-					}
-
 				}
 			}
 
-			if(command[0].equals("join") && !command[1].equals("entrances") && command.length > 3) {
+			if(command[0].equals("join") && !command[1].equals("entrances") && command.length > 4) {
 				try {
-				LevelContainer.Join(command[2], Integer.parseInt(command[3]), command[4], Integer.parseInt(command[5]));
+				LevelContainer.Join(command[1], Integer.parseInt(command[2]), command[3], Integer.parseInt(command[4]));
 				} catch(NumberFormatException e) {
 					System.out.println("Incorrect input");
 				}

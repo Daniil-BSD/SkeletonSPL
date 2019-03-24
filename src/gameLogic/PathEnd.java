@@ -28,9 +28,7 @@ class PathEnd implements CellLogic {
      * that is, if it does not know what cell is next.
      */
     public boolean HasConnection() {
-    	if(nextCell == null)
-        return true;
-    	return false;
+    	return nextCell != null;
     }
 
     /**
