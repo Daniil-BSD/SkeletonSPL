@@ -6,7 +6,7 @@ import java.util.*;
  * This class is responsible for directing the train along the different paths
  * that go out of the fork depending on the player¡¦s choice.
  */
-public class Fork extends Segment {
+class Fork extends Segment {
 
 	public Fork(String id) {
 		super(id);

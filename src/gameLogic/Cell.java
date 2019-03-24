@@ -5,14 +5,18 @@ import java.util.*;
 /**
  * This class is responsible for the basic spacial units of the level, cells. 
  */
-public class Cell {
+class Cell {
 
     /**
      * This attribute stores true if the cell is occupied by a car, false otherwise. 
      */
     private Boolean occupied;
 
-    /**
+	public void setOccupied(Boolean occupied) {
+		this.occupied = occupied;
+	}
+
+	/**
      * This attribute stores the logic which decides the next move for the car.
      */
     private CellLogic logic;

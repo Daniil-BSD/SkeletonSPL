@@ -29,6 +29,18 @@ public abstract class LevelInitializer {
 		locomotive.SetPath(station.path01);
 		LevelContainer.addLocomotive(locomotive);
 	}
+	
+	public static void CollisionDemoInitializer() {
+		LevelContainer.Load(new Level());
+		Staraight straight = new Staraight("straight");
+		LevelContainer.addSegment(straight);
+		Locomotive locomotive1 = new Locomotive(straight.GET_DEMO_CELL(0));
+		Locomotive locomotive2 = new Locomotive(straight.GET_DEMO_CELL(1));
+		locomotive1.SetPath(straight.GET_DEMO_PATHL(0));
+		locomotive2.SetPath(straight.GET_DEMO_PATHL(1));
+		LevelContainer.addLocomotive(locomotive1);
+		LevelContainer.addLocomotive(locomotive2);
+	}
 }
 class LoggerCell implements CellLogic{
 	

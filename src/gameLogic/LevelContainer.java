@@ -8,7 +8,7 @@ import java.util.*;
  * internally by this class. The segments are joined and the tunnels are
  * constructed by it.
  */
-public abstract class LevelContainer {
+abstract class LevelContainer {
 
 	/**
 	 * 
@@ -49,26 +49,27 @@ public abstract class LevelContainer {
 		Segment segment1 = level.FindSegment(Sgm1ID);
 		Segment segment2 = level.FindSegment(Sgm2ID);
 		if (segment1 != null && segment2 != null) {
-
 			if (segment1.IsEndFree(end1ID) && segment2.IsEndFree(end2ID)) {
-				segment1.ConnectTo(segment2.GetFreeEnd(end2ID));
-				segment2.ConnectTo(segment1.GetFreeEnd(end1ID));
-
+				Cell end1 = segment1.GetFreeEnd(end1ID);
+				Cell end2 = segment2.GetFreeEnd(end2ID);
+				segment1.ConnectTo(end1ID, end2);
+				segment2.ConnectTo(end2ID, end1);
+			} else {
+				System.out.println("Cannot Connect!");
 			}
-			System.out.println("Already connected!");
-		}
-		if (segment1 == null || segment2 == null) {
-			System.out.println("Missing Segments!");
-
+		}else{
+			System.out.println("No such segments (one or both are missing)!");
 		}
 
 	}
 
 	public static Segment FindSegment(String sgmID) {
-		System.out.println(">FindSegment(string id): Looks for a segment with the same id.\n");
 
-		System.out.println("<FindSegment(string id): reference to the first entrance(null if does not exist.)\n");
-		return level.FindSegment(sgmID);
+		System.out.println("\t>FindSegment(string id): Looks for a segment with the same id.");
+		Segment ret = level.FindSegment(sgmID);
+		System.out.println("\tFindSegment(string id): reference to the first entrance(null if does not exist.)");
+		return ret;
+		
 	}
 
 	/**
@@ -101,6 +102,7 @@ public abstract class LevelContainer {
 	public static void ConstructFrom(TunnelEntrance te) {
 		System.out.println(">>ConstructFrom(TunnelEntrance te1): Construct a tunnel from the first entrance.\n");
 		te.FullClear();
+		selected.FullClear();
 		Tunnel newTunnel = LevelContainer.level.GetTunnelBetween(te, selected);
 		te.SetTunnel(newTunnel);
 		selected.SetTunnel(newTunnel);
@@ -134,13 +136,13 @@ public abstract class LevelContainer {
 	}
 
 	public static boolean IsThisSelected(TunnelEntrance te) {
-		System.out.println(">IsThisSelected(TunnelEntrance te1): Check if the same entrance was selected already.");
+		System.out.println("\t>IsThisSelected(TunnelEntrance te1): Check if the same entrance was selected already.");
 		if (selected == te) {
-			System.out.println("<IsThisSelected(TunnelEntrance te1): Returns a boolean value if the two entrances are the same point.");
+			System.out.println("\t<IsThisSelected(TunnelEntrance te1): Returns a boolean value if the two entrances are the same point.");
 			return true;
 
 		}
-		System.out.println("<IsThisSelected(TunnelEntrance te1): Returns a boolean value if the two entrances are the same point.");
+		System.out.println("\t<IsThisSelected(TunnelEntrance te1): Returns a boolean value if the two entrances are the same point.");
 		return false;
 	}
 
@@ -237,3 +239,4 @@ class GameTick extends Thread {
 		}
 	}
 }
+

@@ -6,7 +6,7 @@ import java.util.*;
  * This class makes it so that upon reaching the end of the segment, 
  * the train always goes along another path from another segment. 
  */
-public class PathEnd implements CellLogic {
+class PathEnd implements CellLogic {
 
     /**
      * Default constructor
@@ -28,9 +28,7 @@ public class PathEnd implements CellLogic {
      * that is, if it does not know what cell is next.
      */
     public boolean HasConnection() {
-    	if(nextCell == null)
-        return true;
-    	return false;
+    	return nextCell != null;
     }
 
     /**
