@@ -58,6 +58,8 @@ abstract class Segment {
 	 *                level by connecting segments.
 	 */
 	public boolean AreYou(String segmentID) {
+		System.out.println("\t>GetID(): Getter for Id parameter.");
+		System.out.println("\t<GetID(): ID of the segment as a string");
 		return id.equals(segmentID);
 	}
 
@@ -98,6 +100,7 @@ abstract class Segment {
 	 *             passed on as a parameter to this method.
 	 */
 	public void ConnectTo(int endID, Cell end) {
+		System.out.println(">>ConnectTo(Cell pathStart, int endID): assignes cell to the specified PathEnd.");
 		if (!IsEndFree(endID))
 			return;
 		if (endID == 0)
@@ -115,6 +118,8 @@ abstract class Segment {
 	}
 
 	public Path GetPathEndingWith(int endID) {
+		System.out.println("\t>GetPathEndingWith(int endid): getter for a path based on the exit “endid”.");
+		System.out.println("\t<GetPathEndingWith(int endid): path that ends with indecated end.");
 
 		if (endID == 0)
 			return path01;

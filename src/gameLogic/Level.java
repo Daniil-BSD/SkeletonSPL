@@ -50,15 +50,15 @@ class Level {
 	 * @return
 	 */
 	public Segment FindSegment(String sgmID) {
-		System.out.println(">FindSegment(string id): Looks for segment in this level.");
-		System.out.println("//loops through the segments in this level.");
+		System.out.println("\t\t>FindSegment(string id): Searches for a segment with the same id in this level.");
+		System.out.println("\t\t//loops through the segments in this level.");
 		for (Segment sg : segments) {
 			if (sg.AreYou(sgmID)) {
-				System.out.println("<FindSegment(string id): reference to a first entrance(null if doesn’t exist.)");
+				System.out.println("\t\t<FindSegment(string id): reference to a segment if it exists.(null if not)");
 				return sg;
 			}
 		}
-		System.out.println("<FindSegment(string id): reference to a first entrance(null if doesn’t exist.)");
+		System.out.println("\t\t<FindSegment(string id): reference to a segment if it exists.(null if not)");
 		return null;
 	}
 
@@ -70,27 +70,28 @@ class Level {
 	 *                       this method. Returns false otherwise.
 	 */
 	public boolean IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2) {
-		System.out.println(
-				">IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2): checks if the tunnel is possible between the entrances by looking into the level’s tunnel collection.");
+		System.out.println("\t\t>IsTunnelPossibleBetween(TunnelEntrance te1, TunnelEntrance te2): checks if the tunnel is possible between the entrances by looking into the level’s tunnel collection.");
 		for (Tunnel tunnel : tunnels) {
-			if (te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)) {
-				System.out.println(
-						"<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
+			if (te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)
+					|| te1.equals(tunnel.entrance1) && te2.equals(tunnel.entrance0))  {
+				System.out.println("\t\t<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
 				return true;
 			}
 		}
-		System.out.println("<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
+		System.out.println("\t\t<IsTunnelPossibleBetween(TunnelEntrance te1,TunnelEntrance te2): Returns a boolean value.");
 		return false;
 	}
 
 	public Tunnel GetTunnelBetween(TunnelEntrance te1, TunnelEntrance te2) {
-
+		System.out.println("\t>GetTunnelBetween(te1, te2): Looks into the level’s tunnel collection.");
 		for (Tunnel tunnel : tunnels) {
 			if (te1.equals(tunnel.entrance0) && te2.equals(tunnel.entrance1)
 					|| te1.equals(tunnel.entrance1) && te2.equals(tunnel.entrance0)) {
+				System.out.println("\t<GetTunnelBetween(te1, te2): Returns the reference to the new tunnel.");
 				return tunnel;
 			}
 		}
+		System.out.println("\t<GetTunnelBetween(te1, te2): Returns the reference to the new tunnel.");
 		return null;
 	}
 

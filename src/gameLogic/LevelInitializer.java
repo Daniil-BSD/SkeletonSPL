@@ -32,7 +32,7 @@ public abstract class LevelInitializer {
 	
 	public static void CollisionDemoInitializer() {
 		LevelContainer.Load(new Level());
-		Staraight straight = new Staraight("straight");
+		Straight straight = new Straight("straight");
 		LevelContainer.addSegment(straight);
 		Locomotive locomotive1 = new Locomotive(straight.GET_DEMO_CELL(0));
 		Locomotive locomotive2 = new Locomotive(straight.GET_DEMO_CELL(1));
@@ -40,6 +40,18 @@ public abstract class LevelInitializer {
 		locomotive2.SetPath(straight.GET_DEMO_PATHL(1));
 		LevelContainer.addLocomotive(locomotive1);
 		LevelContainer.addLocomotive(locomotive2);
+	}
+	
+	public static void TunnelDemoInitializer() {
+		LevelContainer.Load(new Level());
+		TunnelEntrance entrance1 = new TunnelEntrance("e1");
+		TunnelEntrance entrance2 = new TunnelEntrance("e2");
+		TunnelEntrance entrance3 = new TunnelEntrance("e3");
+		Tunnel tunnel = new Tunnel(entrance1, entrance2);
+		LevelContainer.addSegment(entrance1);
+		LevelContainer.addSegment(entrance2);
+		LevelContainer.addSegment(entrance3);
+		LevelContainer.addTunnel(tunnel);
 	}
 }
 class LoggerCell implements CellLogic{

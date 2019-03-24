@@ -2,8 +2,8 @@ package gameLogic;
 
 import java.util.LinkedList;
 
-class Staraight extends Segment {
-	public Staraight(String id) {
+class Straight extends Segment {
+	public Straight(String id) {
 		super(id);
 		cells = new Cell[9];
 		LinkedList<Cell> temp = new LinkedList<Cell>();
