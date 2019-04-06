@@ -61,8 +61,6 @@ class Station extends Segment {
 
 	/**
 	 * This attribute returns the colors of the station.
-	 * 
-	 * @return
 	 */
 	public Colors[] GetColors() {
 		System.out.println("\t>GetColors(): Requests parent station for colors.");
@@ -76,7 +74,7 @@ class Station extends Segment {
 	 * 
 	 * 
 	 * this method returns a cell where a locomotive should be placed for
-	 * demonstraton
+	 * demonstration
 	 */
 	public Cell GET_DEMO_CELL(int index) {
 		index %= 2;
@@ -89,7 +87,7 @@ class Station extends Segment {
 	/**
 	 * 
 	 * 
-	 * this method returns a cell where a locomotive should be placed for
+	 * this method returns a path where a locomotive should be placed for
 	 * demonstraton
 	 */
 	public Path GET_DEMO_PATHL() {

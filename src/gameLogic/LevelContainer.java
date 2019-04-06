@@ -195,6 +195,9 @@ abstract class LevelContainer {
 		Defeat();
 	}
 
+	/**
+	 * Method called whenever game is completed.
+	 */
 	public static void Victory() {
 		System.out.print("Victory(): Method called whenever game is completed.\n");
 		Stop();
@@ -207,6 +210,9 @@ abstract class LevelContainer {
 		Defeat();
 	}
 
+	/**
+	 * Method called whenever game is lost.
+	 */
 	public static void Defeat() {
 		System.out.print("Defeat(): Method called whenever game is lost.");
 		Stop();
@@ -219,13 +225,13 @@ abstract class LevelContainer {
 		gameTick = new GameTick(10);
 		gameTick.start();
 	}
-	/**
-	 * This method is loads the level to the level container.
-	 */
+
 	public static void Load(String name) {
 		// no current implementation
 	}
-
+	/**
+	 * This method loads the level to the level container.
+	 */
 	public static void Load(Level level) {
 		LevelContainer.level = level;
 	}

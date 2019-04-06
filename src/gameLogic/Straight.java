@@ -39,7 +39,7 @@ class Straight extends Segment {
 	 * 
 	 * 
 	 * this method returns a cell where a locomotive should be placed for
-	 * demonstraton
+	 * demonstration
 	 */
 	public Cell GET_DEMO_CELL(int index) {
 		index %= 2;
@@ -52,8 +52,8 @@ class Straight extends Segment {
 	/**
 	 * 
 	 * 
-	 * this method returns a cell where a locomotive should be placed for
-	 * demonstraton
+	 * this method returns a path where a locomotive should be placed for
+	 * demonstration
 	 */
 	public Path GET_DEMO_PATHL(int index) {
 		index %= 2;

@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * This class is responsible for directing the train along the different paths
- * that go out of the fork depending on the player¡¦s choice.
+ * that go out of the fork depending on the player's choice.
  */
 class Fork extends Segment {
 	/**
@@ -67,15 +67,18 @@ class Fork extends Segment {
 	private SelectorPath selectorPath;
 
 	/**
-	 * This attribute stores one of the fork¡¦s exits.
+	 * This attribute stores one of the fork's exits.
 	 */
 	private Path path20;
 
 	/**
-	 * This attribute stores another exit.
+	 * This attribute stores one of the fork’s exits.
 	 */
 	private Path path02;
 
+	/**
+	 * This attribute stores the fork’s exits.
+	 */
 	private PathEnd end2;
 
 	/**

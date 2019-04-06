@@ -4,11 +4,13 @@ import java.security.InvalidParameterException;
 import java.util.*;
 
 /**
- * The path is a sequence of cells along which the train moves which is
- * implemented by this class.
+ *  This class is responsible for implement the path is a
+ *  sequence of cells along which the train moves 
  */
 class Path {
-
+	/**
+	 * this attribute stores the array of cells
+	 */
 	protected Cell[] cells;
 
 	/**

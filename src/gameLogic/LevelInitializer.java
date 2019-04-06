@@ -32,7 +32,7 @@ public abstract class LevelInitializer {
 	 * This method creates a station adds it to the level while also creating a
 	 * train with a passenger car attached to it.
 	 */
-	public static void StatonDemoInitializer() {
+	public static void StationDemoInitializer() {
 		LevelContainer.Load(new Level());
 		Station station = new Station("station", new Colors[] { Colors.Blue });
 		LevelContainer.addSegment(station);
@@ -77,8 +77,8 @@ public abstract class LevelInitializer {
 }
 
 /**
- * This class is needed to add a specific logic to the cell, which is, again,
- * needed for the demonstration purposes.
+ * This class is needed to add a specific logic to the cell. 
+ * Needed for the demonstration purposes.
  */
 class LoggerCell implements CellLogic {
 

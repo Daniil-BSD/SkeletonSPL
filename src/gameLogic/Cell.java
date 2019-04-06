@@ -18,12 +18,15 @@ class Cell {
 	private CellLogic logic;
 
 	/**
-	 * Default constructor
+	 * Default constructor set occupied to false.
 	 */
 	public Cell() {
 		occupied = false;
 	}
-
+	
+	/**
+	 * This method request the logic of the cell.
+	 */
 	public boolean LogicRequest(Car car) {
 		System.out.println(
 				"\t>LogicRequest(Car car): Decides if the train can leave the current cell and advance to the next cell along the path.");

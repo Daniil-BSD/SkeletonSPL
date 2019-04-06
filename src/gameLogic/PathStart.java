@@ -3,7 +3,7 @@ package gameLogic;
 import java.util.*;
 
 /**
- * This class is needed to set the paths for the trains.
+ *  This class is responsible for setting the paths for the trains.
  */
 class PathStart implements CellLogic {
 

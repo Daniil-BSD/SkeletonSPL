@@ -11,9 +11,9 @@ import main.Main;
 public abstract class ConsoleInterpreter {
 
 	/**
-	 * This method accepts the string input entered by the user, splits it using
-	 * space as a separator and performs specific actions based on the command's
-	 * content.
+	 * This method takes a single string of user input that consists of several 
+	 * words separated by a space. The first word determines the action, 
+	 * the following words determine the objects to be added, or modified. 
 	 */
 	public static void ConsoleLine(String input) throws Exception {
 		System.out.println(">>ConsoleLine(string input): interprets the user string input");
@@ -107,7 +107,7 @@ public abstract class ConsoleInterpreter {
 					System.out.println("//Initializing Level for Fork Demonstration");
 				}
 				if (command[1].equals("station")) {
-					LevelInitializer.StatonDemoInitializer();
+					LevelInitializer.StationDemoInitializer();
 					System.out.println("//Initializing Level for Station Demonstration");
 				}
 				if (command[1].equals("collision")) {

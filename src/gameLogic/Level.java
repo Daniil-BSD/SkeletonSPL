@@ -9,7 +9,7 @@ import java.util.*;
 class Level {
 
 	/**
-	 * Default constructor
+	 * Default constructor, initiate all ArrayList
 	 */
 	public Level() {
 		trains = new ArrayList<Locomotive>();
@@ -35,9 +35,6 @@ class Level {
 	/**
 	 * System clock is implemented by this method.
 	 */
-
-	
-
 	public void Tick() {
 		for (Locomotive locomotive : trains) {
 			locomotive.Step();
@@ -45,9 +42,7 @@ class Level {
 	}
 
 	/**
-	 * @param String sgm1ID This method returns a segment which was found by its
-	 *               string ID.
-	 * @return
+	 * This method returns a segment which was found by its string ID.
 	 */
 	public Segment FindSegment(String sgmID) {
 		System.out.println("\t\t>FindSegment(string id): Searches for a segment with the same id in this level.");
